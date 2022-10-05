@@ -7,39 +7,107 @@
             <h3>로그인</h3>
         </header>
         <main class="form-box">
-            <form class="v-form">
+            <form 
+            v-on:submit.prevent="onSubmit"
+             novalidate="novalidate"
+            class="v-form">
+                <!-- submit.prevent는 뷰 버전의 e.preventDefault  -->
                 <section clas="v-form-box">
                   <div class="box-mb">
                     <label>휴대폰번호</label>
-                    <input type="number" placeholder="휴대폰번호를 '-'를 빼고 입력해주세요" class="input_num" />
+                    <input v-model.number="userPhone" id="userPhone" name="Phone"  type="number" iplaceholder="휴대폰번호를 '-'를 빼고 입력해주세요" class="input_num" />
                   </div>
                 </section>
                 <section clas="v-form-box">
                   <div class="box-mb">
                     <label>비밀번호</label>
-                    <input type="number" placeholder="비밀번호를 입력해주세요" class="input_num" />
+                    <input v-model.number="userPassword" id="userPassword"  name="Password"  type="number" placeholder="비밀번호를 입력해주세요" class="input_num" />
                   </div>
                 </section>
-                <button class="button button-login">로그인</button>
+                <button  type="submit" class="button button-login">로그인</button>
                 <button class="button button-signup">회원가입</button>
             </form>
         </main>
         <div class="toggle-box">        
-            <span class="toggle-text">* 사장님으로 회원 가입합니다.</span>
+            <span @click="isModalViewd=true" class="toggle-text">* 사장님으로 회원 가입합니다.</span>
         </div>
-
+        <LoginModal v-if="isModalViewd" @close-modal="isModalViewd=false"/>
     </router-view>
 </template>
 
 <script>
-  
+    import axios from "axios"
+    import LoginModal from "../components/LoginModal";
+
+
+ 
     export default {
-      name: 'SignIn',
+
     
-      data: () => ({
-       
-      }),
-    }
+         data: function () {
+            //  initial state of userDetails
+            return {
+                userPhone : '',
+                userPassword: '',
+                 // Phone: null,
+                // Password: null,
+
+                // modal 관리 상태값 
+                isModalViewd: false,
+            }
+          },
+         components : {
+            LoginModal
+         },
+
+
+         watch : {
+            userPhone (a) {
+                if (!a) {
+                    console.log("아이디 비었음")
+                }
+            },
+            userPassword (b) {
+                if (!b) {
+                    console.log('비밀번호 비었음')
+                }
+            }
+            
+         },
+         // watch 함수를 통해 특정 데이터 감시
+         methods: {
+            onSubmit () {
+            console.log(this.userPhone, this.userPassword);
+
+            const url = 'http://175.118.126.222/group/bbs/login_check_mb.php';
+            const data = {
+                userPhone: this.userPhone,
+                userPassword: this.userPassword 
+            }
+            // axios variables
+            axios.post(url, data).
+            then(function(res) {
+            console.log(res);
+            })
+            .catch(function(error) {
+                console.log(error);
+             });
+            },
+            // submit methods 
+        
+
+         }
+        
+     }
+     // issue 
+
+     // 1. 아이디, 비밀번호 require
+     // 2. error 호출 (아이디 입력, 비밀번호 입력)
+
+
+     // modal state를 true로 만들면 modal이 뜨는데 이것이 뜨는 기준은 
+     // errors가 떴을때 즉, 입력 안 받았을 때, 그렇다면 
+     // form validation 조건문안에 state를 변경해주는 것이 같이 있을 ㅓㄱ시앋.,
 </script>
  
 <style>
