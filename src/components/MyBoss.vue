@@ -2,11 +2,13 @@
 
 
 <template>
+  <router-view>   
     <v-container>
       <v-row class="text-center">
         myBoss
       </v-row>
-    </v-container>
+    </v-container></router-view>
+ 
   </template>
   
   <script>
