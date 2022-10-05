@@ -65,11 +65,18 @@
             userPhone (a) {
                 if (!a) {
                     console.log("아이디 비었음")
+                    // 여기서 값 true로 변경시키는 값을 props로 보내면 됨
+                    // 데이터를 같이 담아서 
+
                 }
             },
             userPassword (b) {
                 if (!b) {
                     console.log('비밀번호 비었음')
+                       // 여기서 값 true로 변경시키는 값을 props로 보내면 됨
+                        // 데이터를 같이 담아서 
+
+                        // props or slot
                 }
             }
             
@@ -79,11 +86,17 @@
             onSubmit () {
             console.log(this.userPhone, this.userPassword);
 
-            const url = 'http://175.118.126.222/group/bbs/login_check_mb.php';
+ 
+            const url = 'http://175.118.126.222/group/bbs/login_check_mb.php'
             const data = {
-                userPhone: this.userPhone,
-                userPassword: this.userPassword 
+                "mb_id": this.userPhone,
+                "mb_password": this.userPassword,
+                "autoLogin" : 0,
+                "join_type": 1, 
+                "mode" : "login",
+
             }
+            // 01028725785
             // axios variables
             axios.post(url, data).
             then(function(res) {
