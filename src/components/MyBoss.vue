@@ -3,12 +3,13 @@
 
 <template>
   <router-view>   
-    <v-container>
-      <v-row class="text-center">
-        myBoss
+      <v-container>
+        <v-row class="text-center">
+          myBoss
       </v-row>
-    </v-container></router-view>
- 
+      </v-container>
+    </router-view>
+  
   </template>
   
   <script>
