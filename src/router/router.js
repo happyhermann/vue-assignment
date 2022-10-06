@@ -8,18 +8,22 @@ import MyPartner from "../components/MyPartner";
 const routes = [
   {
     path: "/",
+    name: "MyHome",
     component: MyHome,
   },
   {
     path: "/signin",
+    name: "SignIn",
     component: SignIn,
   },
   {
     path: "/boss",
+    name: "MyBoss",
     component: MyBoss,
   },
   {
     path: "/partner",
+    name: "MyPartner",
     component: MyPartner,
   },
 ];

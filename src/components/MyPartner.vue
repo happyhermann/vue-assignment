@@ -3,47 +3,8 @@
 <template>
     <v-container>
       <v-row class="text-center">
-        <v-col cols="12">
-        </v-col>
-        <v-col
-          class="mb-5"
-          cols="12"
-        >
-          <h2 class="headline font-weight-bold mb-5">
-            Important Links
-          </h2>
-          <v-row justify="center">
-            <a
-              v-for="(link, i) in importantLinks"
-              :key="i"
-              :href="link.href"
-              class="subheading mx-3"
-              target="_blank"
-            >
-              {{ link.text }}
-            </a>
-          </v-row>
-        </v-col>
-        <v-col
-          class="mb-5"
-          cols="12"
-        >
-          <h2 class="headline font-weight-bold mb-5">
-            MyPartner
-          </h2>
-  
-          <v-row justify="center">
-            <a
-              v-for="(eco, i) in ecosystem"
-              :key="i"
-              :href="eco.href"
-              class="subheading mx-3"
-              target="_blank"
-            >
-              {{ eco.text }}
-            </a>
-          </v-row>
-        </v-col>
+        <img src="https://cdn.quv.kr/oluwww1tm%2Fup%2F63218781ee0b0_1920.png" />
+          <p>파트너님! 로그인 성공하였습니다</p>
       </v-row>
     </v-container>
   </template>
@@ -59,3 +20,27 @@
   }
   </script>
   
+
+    
+  <style>
+
+   
+   
+    img {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+      margin-top: 30%;
+      margin-bottom: 30px;
+      
+    }
+
+    .text-center p {
+      font-size: 25px;
+      font-weight: 800;
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+  
+  </style>

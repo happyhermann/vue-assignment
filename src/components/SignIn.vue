@@ -1,4 +1,6 @@
 <!-- 재활용 가능하게 (두 개의 라우터) -->
+<!-- @submit.prevent="login" -->
+
 
 <template>
     <router-view>  
@@ -9,7 +11,8 @@
         <main class="form-box">
             <form 
             v-on:submit.prevent="onSubmit"
-             novalidate="novalidate"
+          
+            novalidate="novalidate"
             class="v-form">
                 <!-- submit.prevent는 뷰 버전의 e.preventDefault  -->
                 <section clas="v-form-box">
@@ -38,6 +41,7 @@
 <script>
     import axios from "axios"
     import LoginModal from "../components/LoginModal";
+    import { createWebHistory, createRouter } from "vue-router";
 
 
  
@@ -45,6 +49,7 @@
 
     
          data: function () {
+ 
             //  initial state of userDetails
             return {
                 userPhone : '',
@@ -54,6 +59,10 @@
 
                 // modal 관리 상태값 
                 isModalViewd: false,
+                isLoggedIn: 0,
+                type: 0,
+                // 0이 초기값이자 로그인 되지 않았다는 value
+
             }
           },
          components : {
@@ -78,22 +87,27 @@
 
                         // props or slot
                 }
-            }
+            },
+         
             
          },
-         create() {
-          this.corsRequest()
-          this.proxyRequest()
-          
-         }, 
+        
 
          // watch 함수를 통해 특정 데이터 감시
          methods: {
-            onSubmit () {
-            console.log(this.userPhone, this.userPassword);
 
  
  
+          
+           // 메서드에 파라미터를 넣어볼까? 그리고 axios에서 넣어서 실행 될 때,
+           // 조건문에서 파라미터에 넣는 파라미터에 따라 값이 달라지는 것으로 하도록 하자
+            onSubmit () {
+            console.log(this.userPhone, this.userPassword);
+            console.log(this.isLoggedIn);
+
+            let self = this;
+            // 여기에 인스턴스 생성? 가장 상위 스코프 변수 생성 
+
             const url = `/bbs/login_check_mb.php`
              const data = {
                 "mb_id": this.userPhone,
@@ -107,16 +121,28 @@
             // axios variables
             axios.post(url, data).
             then(function(res) {
-            console.log(res);
+
+            const type = res.data.member.joinType;
+            // 사장님 or 파트너
+
+            if (type == "1") {
+              self.$router.push('/boss')
+            } else if (type == "2") {
+              self.$router.push('/partner')
+            }
             })
             .catch(function(error) {
                 console.log(error);
              });
             },
+       
             // submit methods 
-         }
-        
+         },
+ 
+
      }
+
+ 
      // issue 
 
      // 1. 아이디, 비밀번호 require
