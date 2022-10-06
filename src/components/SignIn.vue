@@ -15,13 +15,13 @@
                 <section clas="v-form-box">
                   <div class="box-mb">
                     <label>휴대폰번호</label>
-                    <input v-model.number="userPhone" id="userPhone" name="Phone"  type="number" iplaceholder="휴대폰번호를 '-'를 빼고 입력해주세요" class="input_num" />
+                    <input v-model="userPhone" id="userPhone" name="Phone"  type="text" placeholder="휴대폰번호를 '-'를 빼고 입력해주세요" class="input_num" />
                   </div>
                 </section>
                 <section clas="v-form-box">
                   <div class="box-mb">
                     <label>비밀번호</label>
-                    <input v-model.number="userPassword" id="userPassword"  name="Password"  type="number" placeholder="비밀번호를 입력해주세요" class="input_num" />
+                    <input v-model="userPassword" id="userPassword"  name="Password"  type="text" placeholder="비밀번호를 입력해주세요" class="input_num" />
                   </div>
                 </section>
                 <button  type="submit" class="button button-login">로그인</button>
@@ -81,14 +81,21 @@
             }
             
          },
+         create() {
+          this.corsRequest()
+          this.proxyRequest()
+          
+         }, 
+
          // watch 함수를 통해 특정 데이터 감시
          methods: {
             onSubmit () {
             console.log(this.userPhone, this.userPassword);
 
  
-            const url = 'http://175.118.126.222/group/bbs/login_check_mb.php'
-            const data = {
+ 
+            const url = `/bbs/login_check_mb.php`
+             const data = {
                 "mb_id": this.userPhone,
                 "mb_password": this.userPassword,
                 "autoLogin" : 0,
@@ -107,8 +114,6 @@
              });
             },
             // submit methods 
-        
-
          }
         
      }
