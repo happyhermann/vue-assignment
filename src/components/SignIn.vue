@@ -10,26 +10,28 @@
         </header>
         <main class="form-box">
             <form 
+            validation-schema="schema"
             v-on:submit.prevent="onSubmit"
           
             novalidate="novalidate"
             class="v-form">
+             
                 <!-- submit.prevent는 뷰 버전의 e.preventDefault  -->
                 <section clas="v-form-box">
-                  <div class="box-mb">
-                    <label>휴대폰번호</label>
-                    <input v-model="userPhone" id="userPhone" name="Phone"  type="text" placeholder="휴대폰번호를 '-'를 빼고 입력해주세요" class="input_num" />
-                  </div>
-                </section>
+                     <div class="box-mb">
+                      <label for="userPhone">휴대폰번호</label>
+                      <input v-model="userPhone" id="userPhone" name="Phone"    type="text" placeholder="휴대폰번호를 '-'를 빼고 입력해주세요" class="input_num" />
+                    </div>
+                 </section>
                 <section clas="v-form-box">
-                  <div class="box-mb">
-                    <label>비밀번호</label>
-                    <input v-model="userPassword" id="userPassword"  name="Password"  type="text" placeholder="비밀번호를 입력해주세요" class="input_num" />
-                  </div>
-                </section>
+                     <div class="box-mb">
+                      <label for="userPassword">비밀번호</label>
+                      <input v-model="userPassword" id="userPassword"  name="Password"  type="text" placeholder="비밀번호를 입력해주세요" class="input_num" />
+                     </div>
+                 </section>
                 <button  type="submit" class="button button-login">로그인</button>
                 <button class="button button-signup">회원가입</button>
-            </form>
+             </form>
         </main>
         <div class="toggle-box">        
             <span @click="isModalViewd=true" class="toggle-text">* 사장님으로 회원 가입합니다.</span>
@@ -41,13 +43,16 @@
 <script>
     import axios from "axios"
     import LoginModal from "../components/LoginModal";
-    import { createWebHistory, createRouter } from "vue-router";
+    // import {eventBus} from "../main";
+     
+    // import {Field, Form} from "vee-validate";
+    // import {object, string} from 'yup';
 
 
  
     export default {
-
-    
+ 
+       
          data: function () {
  
             //  initial state of userDetails
@@ -63,10 +68,21 @@
                 type: 0,
                 // 0이 초기값이자 로그인 되지 않았다는 value
 
-            }
+                // props
+              
+
+                // validation state value
+                valid : {
+                  userPhone : false,
+                  userPassword: false,
+                }, 
+                emailHasError : false,
+                passwordHasError: false,
+              }
           },
          components : {
-            LoginModal
+            LoginModal,
+            
          },
 
 
@@ -88,23 +104,22 @@
                         // props or slot
                 }
             },
+            
          
             
          },
-        
-
+         
          // watch 함수를 통해 특정 데이터 감시
          methods: {
 
- 
+           
  
           
            // 메서드에 파라미터를 넣어볼까? 그리고 axios에서 넣어서 실행 될 때,
            // 조건문에서 파라미터에 넣는 파라미터에 따라 값이 달라지는 것으로 하도록 하자
             onSubmit () {
             console.log(this.userPhone, this.userPassword);
-            console.log(this.isLoggedIn);
-
+ 
             let self = this;
             // 여기에 인스턴스 생성? 가장 상위 스코프 변수 생성 
 
@@ -124,12 +139,17 @@
 
             const type = res.data.member.joinType;
             // 사장님 or 파트너
+            const memNumber = res.data.member.mb_no;
+            // member_no 
 
+            console.log(res)
+ 
             if (type == "1") {
-              self.$router.push('/boss')
-            } else if (type == "2") {
-              self.$router.push('/partner')
-            }
+                 self.$router.push('/boss')
+             } else if (type == "2") {
+              self.$router.push(`/partner/${memNumber}`)
+              // self.$router.push({name: "Params", params: { name: 'parms', age : 2}});
+              }
             })
             .catch(function(error) {
                 console.log(error);
@@ -154,7 +174,7 @@
      // form validation 조건문안에 state를 변경해주는 것이 같이 있을 ㅓㄱ시앋.,
 </script>
  
-<style>
+<style scoped>
  header {
     display : flex;
     align-items: center;
@@ -232,7 +252,8 @@
     font-weight: 400;
    }
 
- 
+   /* spinner */
 
+  
 
 </style>

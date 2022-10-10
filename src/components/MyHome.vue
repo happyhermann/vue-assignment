@@ -74,6 +74,7 @@ export default {
  
    
   }),
+  // 라우터 마운트되면 자동으로 로딩 띄우는 useEffect같은 것 만들기 
 }
 </script>
 

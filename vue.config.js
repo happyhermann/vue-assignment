@@ -11,9 +11,12 @@ module.exports = defineConfig({
         target: "http://175.118.126.222/group",
         changeOrigin: true,
       },
+      "/v1": {
+        target: "http://175.118.126.222/group",
+        changeOrigin: true,
+      },
     },
   },
-  transpileDependencies: true,
   lintOnSave: false,
   pluginOptions: {
     vuetify: {

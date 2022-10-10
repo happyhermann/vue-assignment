@@ -22,7 +22,7 @@ const routes = [
     component: MyBoss,
   },
   {
-    path: "/partner",
+    path: `/partner/:id`,
     name: "MyPartner",
     component: MyPartner,
   },
