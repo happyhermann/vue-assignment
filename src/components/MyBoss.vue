@@ -9,18 +9,14 @@
           <p>사장님! 로그인 성공하였습니다</p>
         </v-row>
 
-        <LodingSpinner :loading="LoadingStatus" />
-        <!-- 1초뒤 로그인 성공화면 보여주기, react의 jsx + 연산자 useeffect-->
+         <!-- 1초뒤 로그인 성공화면 보여주기, react의 jsx + 연산자 useeffect-->
       </v-container>
     </router-view>
   
   </template>
   
   <script>
-     import LodingSpinner from "../components/LodingSpinner"
-    //  import bus from '../utils/EventBus'
-     // import bus from "../utils/bus.js"
- 
+    
   
   export default {
     
@@ -30,25 +26,11 @@
 
     name: 'MyBoss',
 
-    components: {
-      LodingSpinner,
  
-    },
-
     
   
     data: () => ({
-      LoadingStatus: false,
-
-      methods: {
-      
-        startSpinner() {
-          this.LoadingStatus = true;
-        },
-        endSpinner() {
-          this.LoadingStatus = false;
-        }
-      },
+    
       
      
     }),

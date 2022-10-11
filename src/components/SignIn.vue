@@ -123,7 +123,7 @@
             let self = this;
             // 여기에 인스턴스 생성? 가장 상위 스코프 변수 생성 
 
-            const url = `/bbs/login_check_mb.php`
+            const url = `group/bbs/login_check_mb.php`
              const data = {
                 "mb_id": this.userPhone,
                 "mb_password": this.userPassword,
@@ -252,8 +252,7 @@
     font-weight: 400;
    }
 
-   /* spinner */
-
+ 
   
 
 </style>

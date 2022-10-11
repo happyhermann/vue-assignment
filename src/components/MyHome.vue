@@ -130,12 +130,12 @@ export default {
 
   .list-img {
     width:60px;
-    height:60px;
+    height:90px;
     margin-right:15px;
   
   }
   .img {
-    display: block;
+    
     width:100%;
   }
 

@@ -30,13 +30,16 @@
           console.log(this.id, this.pw);
           
 
-          const url = `/bbs/api.php`
-          const data = {
-            "id": this.id,
-            "pw": this.pw
-          }
+          const url = `/testLee/bbs/login_checking.php`
+          // const data = {
+          //   "id": this.id,
+          // }
 
-          axios.post(url, data).
+          axios.post(url, {
+            id: this.id,
+            pw: this.pw,
+
+          }).
           then(function(res) {
             console.log(res)
            }).catch(function(error) {
