@@ -47,7 +47,7 @@
               </div>
               <div class="list-texts">
                 <span>협력파트너(좌상)</span>
-                <p>수거협력사</p>
+                <p>수거협력사</p>1asd2
               </div>
             </div>
             <div class="list-arrow">
