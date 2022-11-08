@@ -1,21 +1,24 @@
+<!-- @ 슬라이더 컴포넌트 -->
+
 <template>
       <swiper
-            v-for="(slide, i) in 데이터"
-            :key="i"
+            effect="fade"
+            slides-per-view="1"
             :space-between="30"
             :centered-slides="true"
             :autoplay="{
-                  delay: 2500,
+                  delay: 2000,
                   disableOnInteraction: false,
             }"
             :pagination="{
                   clickable: true,
             }"
+            loop="auto"
             :navigation="true"
             :modules="modules"
             class="mySwiper"
       >
-            <swiper-slide>
+            <swiper-slide v-for="(slide, i) in 데이터" :key="i">
                   <img :src="slide.image" />
                   <h3>{{ slide.title }}</h3>
             </swiper-slide>
@@ -31,9 +34,18 @@ import "swiper/css";
 
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import "swiper/css/effect-fade";
+import "swiper/css/effect-cards";
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
+import {
+      Autoplay,
+      Pagination,
+      Navigation,
+      EffectFade,
+      EffectCards,
+} from "swiper";
 
 export default {
       components: {
@@ -42,7 +54,7 @@ export default {
       },
       setup() {
             return {
-                  modules: [Autoplay, Pagination, Navigation],
+                  modules: [Autoplay, Pagination, Navigation, EffectFade],
             };
       },
       data() {
