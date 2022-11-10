@@ -4,7 +4,10 @@ import MyHome from "../components/MyHome";
 import SignIn from "../components/SignIn";
 import MyBoss from "../components/MyBoss";
 import MyPartner from "../components/MyPartner";
-import Login from "../common/Login";
+
+// 탄소중립 라우터
+import Login from "../carbon/Login";
+import Barcode from "../carbon/Barcode";
 
 const routes = [
       {
@@ -31,6 +34,11 @@ const routes = [
             path: `/login`,
             name: "Login",
             component: Login,
+      },
+      {
+            path: `/barcode`,
+            name: "Barcode",
+            component: Barcode,
       },
 ];
 

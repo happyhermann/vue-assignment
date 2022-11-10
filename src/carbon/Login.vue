@@ -1,5 +1,5 @@
 <template class="temp" lang="">
-      <section class="container">
+      <section class="login-container">
             <header class="header">
                   <div class="login-top">
                         <div>
@@ -17,7 +17,7 @@
                                     alt="올수 로고"
                               />
                         </div>
-                        <form class="login-form">
+                        <form class="login-form" @submit.prevent="onSubmit">
                               <div class="login-box">
                                     <div id="login-item-id" class="login-item">
                                           <div class="input-box">
@@ -111,6 +111,15 @@ export default {
       data() {
             return {};
       },
+      methods: {
+            onSubmit() {
+                  console.log(`로그인 submit`);
+
+                  let self = this;
+
+                  self.$router.push("/barcode");
+            },
+      },
 };
 </script>
 <style>
@@ -187,7 +196,7 @@ export default {
       position: relative;
 }
 .input-box {
-      padding: 7px 18px 6px 20px;
+      padding: 9px 18px 2px 20px;
 
       position: relative;
       display: block;
@@ -406,10 +415,11 @@ export default {
       font-size: 12px;
 }
 
-.container {
+.login-container {
       width: 100%;
       height: 100vh;
-      background-image: url("https://www.gihoo.or.kr/netzero/upload/upload/editorFiles/20220418164512326.png");
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+            url("https://www.gihoo.or.kr/netzero/upload/upload/editorFiles/20220418164512326.png");
       background-size: contain;
       background-repeat: no-repeat;
       z-index: -3;
