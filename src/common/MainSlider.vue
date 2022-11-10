@@ -1,13 +1,16 @@
 <!-- @ 슬라이더 컴포넌트 -->
 
 <template>
+      <h5 class="slide-title">올수 공식 협력 프랜차이즈</h5>
       <swiper
-            effect="fade"
-            slides-per-view="1"
-            :space-between="30"
-            :centered-slides="true"
+            effect="card"
+            slides-per-view="3"
+            :free-mode="true"
+            :space-between="5"
+            :grab-cursor="true"
+            :speed="2500"
             :autoplay="{
-                  delay: 2000,
+                  delay: 1,
                   disableOnInteraction: false,
             }"
             :pagination="{
@@ -18,9 +21,8 @@
             :modules="modules"
             class="mySwiper"
       >
-            <swiper-slide v-for="(slide, i) in 데이터" :key="i">
-                  <img :src="slide.image" />
-                  <h3>{{ slide.title }}</h3>
+            <swiper-slide v-for="(slide, i) in 데이터" :key="i" class="slide">
+                  <img class="slide-image" :src="slide.image" />
             </swiper-slide>
       </swiper>
 </template>
@@ -37,15 +39,10 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css/effect-fade";
 import "swiper/css/effect-cards";
+import "swiper/css/effect-coverflow";
 
 // import required modules
-import {
-      Autoplay,
-      Pagination,
-      Navigation,
-      EffectFade,
-      EffectCards,
-} from "swiper";
+import { Autoplay, Navigation, EffectFade, EffectCoverflow } from "swiper";
 
 export default {
       components: {
@@ -54,7 +51,7 @@ export default {
       },
       setup() {
             return {
-                  modules: [Autoplay, Pagination, Navigation, EffectFade],
+                  modules: [Autoplay, Navigation, EffectFade, EffectCoverflow],
             };
       },
       data() {
@@ -84,7 +81,6 @@ body {
 }
 
 body {
-      background: #eee;
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
       font-size: 14px;
       color: #000;
@@ -94,14 +90,24 @@ body {
 
 .swiper {
       width: 100%;
-      height: 100%;
+      height: 120px;
+}
+
+.slide-title {
+      font-size: 11px;
+      text-align: center;
+      background-color: #0079f2;
+      color: white;
+      padding: 2px 10px;
+      width: 50%;
+      margin: 0 auto;
+      border-radius: 20px;
 }
 
 .swiper-slide {
       text-align: center;
       font-size: 18px;
       background: #fff;
-
       /* Center slide text vertically */
       display: -webkit-box;
       display: -ms-flexbox;
@@ -120,7 +126,14 @@ body {
 .swiper-slide img {
       display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 100px;
+      margin-top: 6px;
+}
+
+.swiper-button-next {
+      display: none;
+}
+.swiper-button-prev {
+      display: none;
 }
 </style>

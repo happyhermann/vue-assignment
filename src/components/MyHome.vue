@@ -1,61 +1,6 @@
 <!-- eslint-disable -->
-<<<<<<< Updated upstream
-  <template>
-  <section class="container">
-    <h3>기타, 가입유형을 정확하게 선택해주세요</h3>
-    <div class="main">
-      <ul>
-        <router-link to="/signin">
-          <li class="list">
-          <div class="list-left">   
-            <div class="list-img">        
-               <img class="img" src="http://175.118.126.222/m/img/avatar1.ecd893ee.png" alt="사장님 아이콘" />
-            </div>
-            <div class="list-texts">
-              <span>사장님</span>
-              <p>폐식용유(동물성유지)</p>
-              <p>배출을 원하시나요?</p>
-            </div>
-          </div>
-          <div class="list-arrow">
-            <i class="mdi mdi-chevron-right"></i>
-          </div>
-        </li>
-        </router-link>
-        <router-link to="/signin">
-          <li class="list">
-            <div class="list-left">   
-                <div class="list-img">   
-                  <img class="img" src="http://175.118.126.222/m/img/avatar2.c7eb09db.png" alt="수거 파트너 아이콘" />
-                </div>
-                <div class="list-texts">
-                  <span>수거파트너(중상)</span>
-                  <p>폐식용유(동물성유지)</p>
-                  <p>수거를 원하시나요?</p>
-                </div>
-              </div>
-            <div class="list-arrow">
-                <i class="mdi mdi-chevron-right"></i>
-            </div>
-          </li>
-         </router-link> 
-        <li class="list">
-          <div class="list-left">   
-              <div class="list-img">    
-                <img class="img" src="http://175.118.126.222/m/img/avatar3.35075558.png" alt="협력파트너 아이콘" />
-              </div>
-              <div class="list-texts">
-                <span>협력파트너(좌상)</span>
-                <p>수거협력사</p>1asd2
-              </div>
-            </div>
-            <div class="list-arrow">
-              <i class="mdi mdi-chevron-right"></i>
-=======
+
 <template>
-      <section class="container franchise">
-            <MainSlider />
-      </section>
       <!-- <section class="container">
             <div class="main main2">
                   <h3>사장님/수거파트너, 협력파트너</h3>
@@ -126,14 +71,15 @@
                               </ul>
                         </router-link>
                   </nav>
->>>>>>> Stashed changes
             </div>
       </section> -->
 
       <!-- <section class="container container3">
             <div class="main"></div>
       </section> -->
-      <BannerLogin />
+      <section class="container franchise">
+            <MainSlider />
+      </section>
 </template>
 
 <script>
@@ -264,7 +210,7 @@ h3:first-child {
       background: black;
       border-radius: 8px;
       font-weight: 800;
-      margin-top: 5spx;
+      margin-top: 5px;
 
       /* Inside auto layout */
       color: white;
