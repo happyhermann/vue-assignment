@@ -1,106 +1,123 @@
 <template class="temp" lang="">
       <section class="login-container">
-            <header class="header">
-                  <div class="login-top">
-                        <div>
-                              <i class="mdi mdi-arrow-left"> </i>
+            <div data-aos="fade-right">
+                  <header class="header">
+                        <div class="login-top">
+                              <div>
+                                    <i class="mdi mdi-arrow-left"> </i>
+                              </div>
+                              <div><h5 class="login-title">로그인</h5></div>
                         </div>
-                        <div><h5 class="login-title">로그인</h5></div>
-                  </div>
-            </header>
-            <div class="blur">
-                  <main class="login-main">
-                        <div class="logo-box">
-                              <img
-                                    class="logo"
-                                    src="https://cdn.quv.kr/oluwww1tm%2Fup%2F63218781ee0b0_1920.png"
-                                    alt="올수 로고"
-                              />
-                        </div>
-                        <form class="login-form" @submit.prevent="onSubmit">
-                              <div class="login-box">
-                                    <div id="login-item-id" class="login-item">
-                                          <div class="input-box">
-                                                <input
-                                                      class="input"
-                                                      name="id"
-                                                      placeholder="아이디를 입력해주세요"
-                                                />
+                  </header>
+            </div>
+            <div data-aos="fade-right">
+                  <div class="blur">
+                        <main class="login-main">
+                              <div class="logo-box">
+                                    <img
+                                          class="logo"
+                                          src="https://cdn.quv.kr/oluwww1tm%2Fup%2F63218781ee0b0_1920.png"
+                                          alt="올수 로고"
+                                    />
+                              </div>
+                              <form
+                                    class="login-form"
+                                    @submit.prevent="onSubmit"
+                              >
+                                    <div class="login-box">
+                                          <div
+                                                id="login-item-id"
+                                                class="login-item"
+                                          >
+                                                <div class="input-box">
+                                                      <input
+                                                            class="input"
+                                                            name="id"
+                                                            placeholder="아이디를 입력해주세요"
+                                                      />
+                                                </div>
+                                          </div>
+                                          <div
+                                                id="login-item-pw"
+                                                class="login-item"
+                                          >
+                                                <div class="input-box">
+                                                      <input
+                                                            class="input"
+                                                            name="id"
+                                                            placeholder="비밀번호를 입력해주세요"
+                                                      />
+                                                </div>
                                           </div>
                                     </div>
-                                    <div id="login-item-pw" class="login-item">
-                                          <div class="input-box">
+                                    <div class="login-option">
+                                          <label class="login-label">
                                                 <input
-                                                      class="input"
-                                                      name="id"
-                                                      placeholder="비밀번호를 입력해주세요"
+                                                      type="checkbox"
+                                                      class="login-checkbox"
                                                 />
-                                          </div>
+                                                <img
+                                                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Ni4wMDAwMDAsIC0xMDkwLjAwMDAwMCkgdHJhbnNsYXRlKDEwMC4wMDAwMDAsIDkzNi4wMDAwMDApIHRyYW5zbGF0ZSg2MC4wMDAwMDAsIDE0Mi4wMDAwMDApIHRyYW5zbGF0ZSgxNi4wMDAwMDAsIDEyLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iIzVGMDA4MCIvPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik03IDEyLjY2N0wxMC4zODUgMTYgMTggOC41Ii8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                                                      alt=""
+                                                      class="css-1wfsi82 e31wziv0 check-box-icon"
+                                                />
+                                                <span>아이디 저장</span>
+                                          </label>
+                                          <label class="login-label">
+                                                <input
+                                                      type="checkbox"
+                                                      class="login-checkbox"
+                                                />
+                                                <img
+                                                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgc3Ryb2tlPSIjREREIj4KICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICA8Zz4KICAgICAgICAgICAgICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjY5LjAwMDAwMCwgLTEwOTAuMDAwMDAwKSB0cmFuc2xhdGUoMTAwLjAwMDAwMCwgOTM2LjAwMDAwMCkgdHJhbnNsYXRlKDU1My4wMDAwMDAsIDE0Mi4wMDAwMDApIHRyYW5zbGF0ZSgxNi4wMDAwMDAsIDEyLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMS41Ii8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik03IDEyLjY2N0wxMC4zODUgMTYgMTggOC41Ii8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+                                                      alt=""
+                                                      class="css-1wfsi82 e31wziv0 check-box-icon"
+                                                />
+                                                <span>자동 로그인</span>
+                                          </label>
                                     </div>
-                              </div>
-                              <div class="login-option">
-                                    <label class="login-label">
-                                          <input
-                                                type="checkbox"
-                                                class="login-checkbox"
-                                          />
-                                          <img
-                                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3Ni4wMDAwMDAsIC0xMDkwLjAwMDAwMCkgdHJhbnNsYXRlKDEwMC4wMDAwMDAsIDkzNi4wMDAwMDApIHRyYW5zbGF0ZSg2MC4wMDAwMDAsIDE0Mi4wMDAwMDApIHRyYW5zbGF0ZSgxNi4wMDAwMDAsIDEyLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iIzVGMDA4MCIvPgogICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik03IDEyLjY2N0wxMC4zODUgMTYgMTggOC41Ii8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                alt=""
-                                                class="css-1wfsi82 e31wziv0 check-box-icon"
-                                          />
-                                          <span>아이디 저장</span>
-                                    </label>
-                                    <label class="login-label">
-                                          <input
-                                                type="checkbox"
-                                                class="login-checkbox"
-                                          />
-                                          <img
-                                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgc3Ryb2tlPSIjREREIj4KICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICA8Zz4KICAgICAgICAgICAgICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjY5LjAwMDAwMCwgLTEwOTAuMDAwMDAwKSB0cmFuc2xhdGUoMTAwLjAwMDAwMCwgOTM2LjAwMDAwMCkgdHJhbnNsYXRlKDU1My4wMDAwMDAsIDE0Mi4wMDAwMDApIHRyYW5zbGF0ZSgxNi4wMDAwMDAsIDEyLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMS41Ii8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik03IDEyLjY2N0wxMC4zODUgMTYgMTggOC41Ii8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
-                                                alt=""
-                                                class="css-1wfsi82 e31wziv0 check-box-icon"
-                                          />
-                                          <span>자동 로그인</span>
-                                    </label>
-                              </div>
-                              <div class="button-box">
-                                    <button class="login-button">로그인</button>
-                                    <!-- <button class="login-button button2">
+                                    <div class="button-box">
+                                          <button class="login-button">
+                                                로그인
+                                          </button>
+                                          <!-- <button class="login-button button2">
                                           회원가입
                                     </button> -->
+                                    </div>
+                              </form>
+                              <div class="search-info">
+                                    <a class="search-info-text" href="#"
+                                          >아이디 찾기</a
+                                    >
+                                    <span class="vertical-divider"></span>
+                                    <a class="search-info-text" href="#"
+                                          >비밀번호 찾기</a
+                                    >
                               </div>
-                        </form>
-                        <div class="search-info">
-                              <a class="search-info-text" href="#"
-                                    >아이디 찾기</a
-                              >
-                              <span class="vertical-divider"></span>
-                              <a class="search-info-text" href="#"
-                                    >비밀번호 찾기</a
-                              >
-                        </div>
-                        <a class="signup-text" href="#"
-                              >계정이 없으신가요? <span>가입하기</span></a
-                        >
-
-                        <div class="social-login-box">
-                              <span class="social-login-text"
-                                    >소셜 로그인으로
-                                    <strong>간편하게</strong> 시작하세요</span
+                              <a class="signup-text" href="#"
+                                    >계정이 없으신가요? <span>가입하기</span></a
                               >
 
-                              <button class="social-login kakao">
-                                    <span> </span>카카오로 시작하기
-                              </button>
-                              <button class="social-login google">
-                                    <span></span>구글 계정으로 시작하기
-                              </button>
-                              <button class="social-login facebook">
-                                    <span></span>페이스북 계정으로 시작하기
-                              </button>
-                        </div>
-                  </main>
+                              <div class="social-login-box">
+                                    <span class="social-login-text"
+                                          >소셜 로그인으로
+                                          <strong>간편하게</strong>
+                                          시작하세요</span
+                                    >
+
+                                    <button class="social-login kakao">
+                                          <span> </span>카카오로 시작하기
+                                    </button>
+                                    <button class="social-login google">
+                                          <span></span>구글 계정으로 시작하기
+                                    </button>
+                                    <button class="social-login facebook">
+                                          <span></span>페이스북 계정으로
+                                          시작하기
+                                    </button>
+                              </div>
+                        </main>
+                  </div>
 
                   <!-- 여백 채우기 article-->
             </div>

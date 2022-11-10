@@ -1,80 +1,107 @@
 <template lang="">
       <section class="container barcode-container">
-            <header class="barcode-header">
-                  <h4>스캔</h4>
-                  <div class="barcode-header-icons">
-                        <i class="mdi mdi-qrcode"></i>
-                        <i class="mdi mdi-settings"></i>
-                        <i class="mdi mdi-account-outline"></i>
-                  </div>
-            </header>
-            <main class="barcode-main">
-                  <div v-if="toggle === false" class="card-box">
-                        <div class="card">
-                              <div class="card-img-box">
-                                    <img
-                                          class="card-img"
-                                          src="https://images.squarespace-cdn.com/content/v1/5d25038878c2050001a82eaf/1614638251257-YZS0CG0SNCW801AKAYMF/Carbon+Zero+on+In+Good+Hands?format=1000w"
-                                    />
-                              </div>
-                              <div class="card-details">
-                                    <div class="card-details-texts">
-                                          <p>탄소중립 포인트 카드</p>
-                                          <p>1354 90** **** 7777</p>
+            <div data-aos="fade-right">
+                  <header class="barcode-header">
+                        <h4>스캔</h4>
+                        <div class="barcode-header-icons">
+                              <i class="mdi mdi-qrcode"></i>
+                              <i class="mdi mdi-settings"></i>
+                              <i class="mdi mdi-account-outline"></i>
+                        </div>
+                  </header>
+            </div>
+            <div data-aos="fade-right">
+                  <main class="barcode-main">
+                        <div class="item" data-aos="zoom-in">
+                              <div v-if="toggle === false" class="card-box">
+                                    <div class="card">
+                                          <div class="card-img-box">
+                                                <img
+                                                      class="card-img"
+                                                      src="https://images.squarespace-cdn.com/content/v1/5d25038878c2050001a82eaf/1614638251257-YZS0CG0SNCW801AKAYMF/Carbon+Zero+on+In+Good+Hands?format=1000w"
+                                                />
+                                          </div>
+                                          <div class="card-details">
+                                                <div class="card-details-texts">
+                                                      <p>
+                                                            탄소중립 포인트 카드
+                                                      </p>
+                                                      <p>1354 90** **** 7777</p>
+                                                </div>
+                                                <button
+                                                      class="card-details-btn"
+                                                >
+                                                      실천 내역
+                                                </button>
+                                          </div>
                                     </div>
-                                    <button class="card-details-btn">
-                                          실천 내역
-                                    </button>
                               </div>
                         </div>
-                  </div>
 
-                  <div v-if="toggle === true" class="barcode-box">
-                        <i class="mdi mdi-arrow-left" @click="onClose()"></i>
-                        <span class="card-box-title" @click="onBardCode()"
-                              >바코드</span
-                        >
+                        <div class="item" data-aos="fade-left">
+                              <div v-if="toggle === true" class="barcode-box">
+                                    <i
+                                          class="mdi mdi-arrow-left"
+                                          @click="onClose()"
+                                    ></i>
+                                    <span
+                                          class="card-box-title"
+                                          @click="onBardCode()"
+                                          >바코드</span
+                                    >
 
-                        <div class="barcode-img-box">
-                              <img
-                                    class="barcode-img"
-                                    src="https://pngimg.com/uploads/barcode/barcode_PNG7.png"
-                                    alt="바코드"
-                              />
-                        </div>
-
-                        <div class="barcode-box-details">
-                              <div class="detail-top">
-                                    <div class="detail-top-left">
-                                          <span>탄소실천 포인트</span>
-                                          <span>미표시</span>
+                                    <div class="barcode-img-box">
+                                          <img
+                                                class="barcode-img"
+                                                src="https://pngimg.com/uploads/barcode/barcode_PNG7.png"
+                                                alt="바코드"
+                                          />
                                     </div>
 
-                                    <button class="detail-top-button">
-                                          보기
-                                    </button>
-                              </div>
-                              <div class="detail-bottom">
-                                    <span>포인트 계좌</span
-                                    ><span>농협(5824)</span>
+                                    <div class="barcode-box-details">
+                                          <div class="detail-top">
+                                                <div class="detail-top-left">
+                                                      <span
+                                                            >탄소실천
+                                                            포인트</span
+                                                      >
+                                                      <span>미표시</span>
+                                                </div>
+
+                                                <button
+                                                      class="detail-top-button"
+                                                >
+                                                      보기
+                                                </button>
+                                          </div>
+                                          <div class="detail-bottom">
+                                                <span>포인트 계좌</span
+                                                ><span>농협(5824)</span>
+                                          </div>
+                                    </div>
                               </div>
                         </div>
-                  </div>
 
-                  <!-- 바코드 -->
+                        <!-- 바코드 -->
 
-                  <!-- 조건부 렌더링 -->
+                        <!-- 조건부 렌더링 -->
 
-                  <div v-if="toggle === false" class="barcode-button-box">
-                        <button class="barcode-view" @click="onBarcode()">
-                              바코드 실행
-                        </button>
-                  </div>
-                  <!-- 조건부 렌더링 -->
-            </main>
+                        <div v-if="toggle === false" class="barcode-button-box">
+                              <button class="barcode-view" @click="onBarcode()">
+                                    바코드 실행
+                              </button>
+                        </div>
+                        <!-- 조건부 렌더링 -->
+                  </main>
+            </div>
       </section>
 </template>
 <script>
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+AOS.init();
+
 export default {
       data() {
             return {

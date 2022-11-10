@@ -1,26 +1,52 @@
 <template>
-  <div class="main-page">
-    <router-view></router-view>
-  </div>
- 
-
-
+      <div class="main-page">
+            <transition name="fade" mode="out-in">
+                  <router-view></router-view>
+            </transition>
+      </div>
 </template>
 
 <script>
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+// ..
+AOS.init({ duration: 900 });
 
-
- 
- 
- 
 export default {
-  name: 'App',
+      name: "App",
 
-  
-
-  data: () => ({
-    //
-  
-  }),
-}
+      data: () => ({
+            //
+      }),
+};
 </script>
+
+<style>
+.fade-enter {
+      opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+      transition: opacity 0.5s ease-out;
+}
+
+.fade-leave-to {
+      opacity: 0;
+}
+
+.slide-fade-enter {
+      transform: translateX(10px);
+      opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+      transition: all 0.2s ease;
+}
+
+.slide-fade-leave-to {
+      transform: translateX(-10px);
+      opacity: 0;
+}
+</style>
