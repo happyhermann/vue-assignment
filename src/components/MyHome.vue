@@ -1,85 +1,24 @@
 <!-- eslint-disable -->
 
 <template>
-      <!-- <section class="container">
-            <div class="main main2">
-                  <h3>사장님/수거파트너, 협력파트너</h3>
-                  <nav>
-                        <router-link to="/signin">
-                              <ul>
-                                    <li class="list">
-                                          <div class="list-left">
-                                                <div class="list-img">
-                                                      <img
-                                                            class="img"
-                                                            src="http://175.118.126.222/m/img/avatar1.ecd893ee.png"
-                                                            alt="사장님 아이콘"
-                                                      />
-                                                </div>
-                                                <div class="list-texts">
-                                                      <span
-                                                            style="
-                                                                  margin-bottom: 22px;
-                                                            "
-                                                            >사장님</span
-                                                      >
-                                                      <p></p>
-                                                </div>
-                                          </div>
-                                          <div class="list-arrow"></div>
-                                    </li>
-                                    <li class="list">
-                                          <div class="list-left">
-                                                <div class="list-img">
-                                                      <img
-                                                            class="img"
-                                                            src="http://175.118.126.222/m/img/avatar2.c7eb09db.png"
-                                                            alt="수거 파트너 아이콘"
-                                                      />
-                                                </div>
-                                                <div class="list-texts">
-                                                      <span
-                                                            >수거파트너
-                                                            <br />(중상)</span
-                                                      >
-                                                </div>
-                                          </div>
-                                    </li>
-                              </ul>
-                        </router-link>
-
-                        <router-link to="/signin">
-                              <ul>
-                                    <li class="list">
-                                          <div class="list-left">
-                                                <div class="list-img">
-                                                      <img
-                                                            class="img"
-                                                            src="http://175.118.126.222/m/img/avatar3.35075558.png"
-                                                            alt="협력파트너 아이콘"
-                                                      />
-                                                </div>
-                                                <div class="list-texts">
-                                                      <span
-                                                            >협력파트너
-                                                            <br />
-                                                            (좌상)</span
-                                                      >
-                                                </div>
-                                          </div>
-                                    </li>
-                              </ul>
-                        </router-link>
-                  </nav>
-            </div>
-      </section> -->
-
-      <!-- <section class="container container3">
-            <div class="main"></div>
-      </section> -->
-      <section class="container franchise">
+      <div class="app-main">
+            <router-link to="/signin">
+                  <section class="container container1">
+                        <div class="main"></div>
+                  </section>
+            </router-link>
+            <router-link to="/signin">
+                  <section class="container container2">
+                        <div class="main"></div>
+                  </section>
+            </router-link>
+            <router-link to="/login">
+                  <section class="container container3">
+                        <div class="main"></div>
+                  </section>
+            </router-link>
             <MainSlider />
-      </section>
+      </div>
 </template>
 
 <script>
@@ -101,29 +40,41 @@ export default {
 </script>
 
 <style>
-.container {
+.app-main {
       width: 100%;
-      padding: 6px 8px;
-      background-color: white;
+      padding: 30px;
+}
+.container {
+      margin-bottom: 0px;
+      height: 140px;
 }
 
-.container1 > main {
-      padding: 10px 30px;
+.container1 > .main {
+      background-image: url("../assets/boss.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding: 70px 0;
+}
+
+.container2 > .main {
+      background-image: url("../assets/partner.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding: 70px 0;
 }
 
 .container3 > .main {
-      background-image: url("https://img.freepik.com/premium-vector/co-neutral-balance-concept_118813-3413.jpg?w=2000");
+      background-image: url("../assets/normal.png");
       background-repeat: no-repeat;
-      background-size: cover;
-      padding: 85px 0;
+      background-size: contain;
+      padding: 70px 0;
 }
 
 .main {
       background-color: white;
       padding: 10px;
       border-radius: 15px;
-      width: 100vw;
-      margin: 0 auto;
+      width: 100%;
 }
 
 nav {

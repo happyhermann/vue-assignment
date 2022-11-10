@@ -1,7 +1,6 @@
 <!-- @ 슬라이더 컴포넌트 -->
 
 <template>
-      <h5 class="slide-title">올수 공식 협력 프랜차이즈</h5>
       <swiper
             effect="card"
             slides-per-view="3"

@@ -3,10 +3,8 @@
 
 <template>
       <router-view>
-            <header class="header">
-                  <router-link to="/">
-                        <i class="mdi mdi-close"></i>
-                  </router-link>
+            <header class="header2">
+                  <i class="mdi mdi-close" @click="goBack()"></i>
                   <h3>로그인</h3>
             </header>
             <main class="form-box">
@@ -159,6 +157,13 @@ export default {
                               console.log(error);
                         });
             },
+            goBack() {
+                  console.log(`뒤로 가기 함수`);
+                  let self = this;
+                  self.$router.go(-1);
+                  // 한 단계 뒤로
+                  // router.go 인자로 넘긴 숫자만큼 히스토릭 스택에서 앞, 뒤로 이동하는 메소드
+            },
 
             // submit methods
       },
@@ -175,7 +180,7 @@ export default {
 </script>
 
 <style scoped>
-header {
+.header2 {
       display: flex;
       align-items: center;
       padding: 20px;
@@ -185,13 +190,13 @@ header {
       margin-bottom: 32px;
 }
 
-header i {
+.header2 i {
       position: absolute;
       left: 5%;
       font-size: 24px;
 }
 
-header h3 {
+.header2 h3 {
       font-size: 19px;
       font-weight: 700;
       text-align: center;

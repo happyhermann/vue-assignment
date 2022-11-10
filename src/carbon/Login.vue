@@ -4,7 +4,11 @@
                   <header class="header">
                         <div class="login-top">
                               <div>
-                                    <i class="mdi mdi-arrow-left"> </i>
+                                    <i
+                                          class="mdi mdi-arrow-left"
+                                          @click="goBack()"
+                                    >
+                                    </i>
                               </div>
                               <div><h5 class="login-title">로그인</h5></div>
                         </div>
@@ -135,6 +139,13 @@ export default {
                   let self = this;
 
                   self.$router.push("/barcode");
+            },
+            goBack() {
+                  console.log(`뒤로 가기 함수`);
+                  let self = this;
+                  self.$router.go(-1);
+                  // 한 단계 뒤로
+                  // router.go 인자로 넘긴 숫자만큼 히스토릭 스택에서 앞, 뒤로 이동하는 메소드
             },
       },
 };
