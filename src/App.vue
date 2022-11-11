@@ -1,6 +1,6 @@
 <template>
       <div class="main-page">
-            <transition name="fade" mode="out-in">
+            <transition name="slide-fade" mode="out-in">
                   <router-view></router-view>
             </transition>
       </div>
@@ -28,7 +28,7 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-      transition: opacity 0.5s ease-out;
+      transition: opacity 0.4s ease-out;
 }
 
 .fade-leave-to {
@@ -42,7 +42,7 @@ export default {
 
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-      transition: all 0.2s ease;
+      transition: all 0.5s ease;
 }
 
 .slide-fade-leave-to {

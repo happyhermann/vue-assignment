@@ -1,6 +1,6 @@
 <template class="temp" lang="">
       <section class="login-container">
-            <div data-aos="fade-right">
+            <div data-aos="fade-up">
                   <header class="header">
                         <div class="login-top">
                               <div>
@@ -14,7 +14,7 @@
                         </div>
                   </header>
             </div>
-            <div data-aos="fade-right">
+            <div data-aos="fade-up">
                   <div class="blur">
                         <main class="login-main">
                               <div class="logo-box">
@@ -35,6 +35,9 @@
                                           >
                                                 <div class="input-box">
                                                       <input
+                                                            id="id"
+                                                            v-model="id"
+                                                            type="text"
                                                             class="input"
                                                             name="id"
                                                             placeholder="아이디를 입력해주세요"
@@ -47,13 +50,18 @@
                                           >
                                                 <div class="input-box">
                                                       <input
+                                                            id="pw"
+                                                            v-model="pw"
+                                                            type="password"
                                                             class="input"
-                                                            name="id"
+                                                            name="password"
                                                             placeholder="비밀번호를 입력해주세요"
                                                       />
                                                 </div>
                                           </div>
                                     </div>
+                                    <p class="errorMessage">{{ errors }}</p>
+
                                     <div class="login-option">
                                           <label class="login-label">
                                                 <input
@@ -81,7 +89,10 @@
                                           </label>
                                     </div>
                                     <div class="button-box">
-                                          <button class="login-button">
+                                          <button
+                                                type="submit"
+                                                class="login-button"
+                                          >
                                                 로그인
                                           </button>
                                           <!-- <button class="login-button button2">
@@ -129,16 +140,43 @@
 </template>
 <script>
 export default {
+      components: {},
+
       data() {
-            return {};
+            return {
+                  id: "",
+                  pw: "",
+                  errors: "",
+            };
       },
+
       methods: {
-            onSubmit() {
+            onSubmit(e) {
                   console.log(`로그인 submit`);
 
-                  let self = this;
+                  if (this.id == "") {
+                        this.errors = "아이디를 입력해주세요";
 
-                  self.$router.push("/barcode");
+                        return false;
+                        // 아이디 입력 안되어있으면 submit 이벤트 중지
+                  }
+                  if (this.pw == "") {
+                        this.errors = "비밀번호를 입력해주세요";
+                        return false;
+                  }
+                  // 비밀번호 입력 안되어있으면 submit 이벤트 중지
+
+                  if (this.id && this.pw) {
+                        if (this.id !== "allsu") {
+                              this.errors = "아이디가 유효하지 않습니다";
+                        } else if (this.id == "allsu" && this.pw == "1234") {
+                              this.errors = "";
+                              alert("allsu님 환영합니다!");
+
+                              let self = this;
+                              self.$router.push("/barcode");
+                        }
+                  }
             },
             goBack() {
                   console.log(`뒤로 가기 함수`);
@@ -447,7 +485,7 @@ export default {
       width: 100%;
       height: 100vh;
       background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-            url("https://www.gihoo.or.kr/netzero/upload/upload/editorFiles/20220418164512326.png");
+            url("https://cdn.issuenbiz.com/news/photo/202209/16866_17202_514.jpg");
       background-size: contain;
       background-repeat: no-repeat;
       z-index: -3;
@@ -460,7 +498,6 @@ export default {
       padding: 10px 5px;
       border-top-left-radius: 30px;
       border-top-right-radius: 30px;
-      height: 100vh;
 }
 
 /* 소셜 로그인 */
@@ -510,5 +547,13 @@ export default {
 .facebook {
       background-color: #4f75be;
       color: white;
+}
+
+/* 폼 유효성  */
+
+.errorMessage {
+      font-size: 13px;
+      margin-top: 5px;
+      margin-left: 3px;
 }
 </style>

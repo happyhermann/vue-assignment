@@ -1,6 +1,6 @@
 <template lang="">
       <section class="container barcode-container">
-            <div data-aos="fade-right">
+            <div data-aos="fade-up">
                   <header class="barcode-header">
                         <h4>스캔</h4>
                         <div class="barcode-header-icons">
@@ -10,7 +10,7 @@
                         </div>
                   </header>
             </div>
-            <div data-aos="fade-right">
+            <div data-aos="fade-up">
                   <main class="barcode-main">
                         <div class="item" data-aos="zoom-in">
                               <div v-if="toggle === false" class="card-box">
@@ -91,7 +91,6 @@
                                     바코드 실행
                               </button>
                         </div>
-                        <!-- 조건부 렌더링 -->
                   </main>
             </div>
       </section>
@@ -124,7 +123,7 @@ export default {
 .barcode-container {
       height: 100vh;
       background-color: #eec82f;
-      padding: 5px;
+      padding: 0px;
 }
 
 .barcode-header {
@@ -141,8 +140,8 @@ export default {
 }
 
 .barcode-main {
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
       background-color: white;
       height: 100vh;
       margin-top: 60px;

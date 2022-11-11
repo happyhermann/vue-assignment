@@ -23,14 +23,12 @@
 
 <script>
 import MainSlider from "../common/MainSlider.vue";
-import BannerLogin from "./BannerLogin.vue";
 
 export default {
       name: "MyHome",
 
       components: {
             MainSlider,
-            BannerLogin,
       },
 
       data: () => ({}),
@@ -42,31 +40,30 @@ export default {
 <style>
 .app-main {
       width: 100%;
-      padding: 30px;
+      padding: 15px;
 }
 .container {
-      margin-bottom: 0px;
-      height: 140px;
+      margin-bottom: 15px;
 }
 
 .container1 > .main {
       background-image: url("../assets/boss.png");
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       padding: 70px 0;
 }
 
 .container2 > .main {
       background-image: url("../assets/partner.png");
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       padding: 70px 0;
 }
 
 .container3 > .main {
       background-image: url("../assets/normal.png");
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       padding: 70px 0;
 }
 
