@@ -155,20 +155,20 @@ export default {
                   console.log(`로그인 submit`);
 
                   if (this.id == "") {
-                        this.errors = "아이디를 입력해주세요";
+                        this.errors = "* 아이디를 입력해주세요";
 
                         return false;
                         // 아이디 입력 안되어있으면 submit 이벤트 중지
                   }
                   if (this.pw == "") {
-                        this.errors = "비밀번호를 입력해주세요";
+                        this.errors = "* 비밀번호를 입력해주세요";
                         return false;
                   }
                   // 비밀번호 입력 안되어있으면 submit 이벤트 중지
 
                   if (this.id && this.pw) {
                         if (this.id !== "allsu") {
-                              this.errors = "아이디가 유효하지 않습니다";
+                              this.errors = "* 아이디가 유효하지 않습니다";
                         } else if (this.id == "allsu" && this.pw == "1234") {
                               this.errors = "";
                               alert("allsu님 환영합니다!");
@@ -483,21 +483,21 @@ export default {
 
 .login-container {
       width: 100%;
-      height: 100vh;
       background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-            url("https://cdn.issuenbiz.com/news/photo/202209/16866_17202_514.jpg");
-      background-size: contain;
+            url("https://www.hansung.ac.kr/CrossEditor/binary/images/000142/%ED%83%84%EC%86%8C%EC%A4%91%EB%A6%BD_%ED%8F%AC%EC%8A%A4%ED%84%B0(%EC%9B%B9%EC%9A%A9).jpg");
+      background-size: cover;
       background-repeat: no-repeat;
       z-index: -3;
       padding: 0;
 }
 
 .blur {
-      margin-top: 50%;
+      margin-top: 48%;
       background-color: white;
       padding: 10px 5px;
-      border-top-left-radius: 30px;
-      border-top-right-radius: 30px;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      height: calc(100vh - 400px);
 }
 
 /* 소셜 로그인 */

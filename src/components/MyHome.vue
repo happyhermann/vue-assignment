@@ -2,6 +2,13 @@
 
 <template>
       <div class="app-main">
+            <header class="allsu-title">
+                  <h2>올수</h2>
+                  <div class="allsu-help">
+                        <i class="mdi mdi-information-outline"></i>
+                        <span>도움이 필요해요</span>
+                  </div>
+            </header>
             <router-link to="/signin">
                   <section class="container container1">
                         <div class="main"></div>
