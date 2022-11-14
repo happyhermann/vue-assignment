@@ -2,108 +2,52 @@
       <section class="container barcode-container">
             <div data-aos="fade-up">
                   <header class="barcode-header">
-                        <h4>스캔</h4>
                         <div class="barcode-header-icons">
-                              <i class="mdi mdi-qrcode"></i>
-                              <i class="mdi mdi-settings"></i>
-                              <i class="mdi mdi-account-outline"></i>
+                              <i class="mdi mdi-menu"></i>
+
+                      </div>
+                        <h4>탄소중립저울</h4>
+                        <div class="barcode-header-icons">
+                            
+                              <i class="mdi mdi-account"></i>
                         </div>
                   </header>
             </div>
-            <div data-aos="fade-up">
+            <div class="barcode-top">
+                             <p class="barcode-top-text"><strong>백종석</strong>님 <br/>안녕하세요!</p>
+                             <span v-on:click="onDispose" class="barcode-top-button">배출하기</span>
+                        </div>
+            <div data-aos="fade-up" class="barcode-main-anim">
                   <main class="barcode-main">
-                        <div class="item" data-aos="zoom-in">
-                              <div v-if="toggle === false" class="card-box">
-                                    <div class="card">
-                                          <div class="card-img-box">
-                                                <img
-                                                      class="card-img"
-                                                      src="https://images.squarespace-cdn.com/content/v1/5d25038878c2050001a82eaf/1614638251257-YZS0CG0SNCW801AKAYMF/Carbon+Zero+on+In+Good+Hands?format=1000w"
-                                                />
-                                          </div>
-                                          <div class="card-details">
-                                                <div class="card-details-texts">
-                                                      <p>
-                                                            탄소중립 포인트 카드
-                                                      </p>
-                                                      <p>1354 90** **** 7777</p>
-                                                </div>
-                                                <button
-                                                      class="card-details-btn"
-                                                >
-                                                      실천 내역
-                                                </button>
-                                          </div>
-                                    </div>
+                      
+                        <ul class="barcode-detail-box">
+                              <li class="barcode-detail-list">
+                                    <span class="detail-list-title">나의 단계</span>
+                                    <span class="detail-list-text">새싹 꿈나무</span>
+                              </li>
+                              <li class="barcode-detail-list">
+                                    <span class="detail-list-title list-title-second">현재 적립금</span>
+                                    <span class="detail-list-text">6,520 <span>원</span></span>
+                              </li>
+                              <li class="barcode-detail-list">
+                                    <span class="detail-list-title">누적 포인트</span>
+                                    <span class="detail-list-text">100 <span>P</span></span>
+                              </li>
+                        </ul>
+                        <div class="divider"></div>
+                        <div class="card-box">
+                              <img class="card-img" :src="require(`../assets/card.png`)" alt="카드 이미지" />
+                              <div class="card-details">
+                                    <span>탄소중립 포인트 카드</span>
+                                    <span>실천 내역</span>
                               </div>
-                        </div>
-
-                        <div class="item" data-aos="fade-left">
-                              <div v-if="toggle === true" class="barcode-box">
-                                    <i
-                                          class="mdi mdi-arrow-left"
-                                          @click="onClose()"
-                                    ></i>
-                                    <span
-                                          class="card-box-title"
-                                          @click="onBardCode()"
-                                          >바코드</span
-                                    >
-
-                                    <div class="barcode-img-box">
-                                          <img
-                                                class="barcode-img"
-                                                src="https://pngimg.com/uploads/barcode/barcode_PNG7.png"
-                                                alt="바코드"
-                                          />
-                                    </div>
-
-                                    <div class="barcode-box-details">
-                                          <div class="detail-top">
-                                                <div class="detail-top-left">
-                                                      <span
-                                                            >탄소실천
-                                                            포인트</span
-                                                      >
-                                                      <span>미표시</span>
-                                                </div>
-
-                                                <button
-                                                      class="detail-top-button"
-                                                >
-                                                      보기
-                                                </button>
-                                          </div>
-                                          <div class="detail-bottom">
-                                                <span>포인트 계좌</span
-                                                ><span>농협(5824)</span>
-                                          </div>
-
-                                          <button class="testButton" @click='isDone()'>배출 끝내기</button>
-
-                                          <Loading v-if='isLoading'/>
-
-
-                                    </div>
-                                    
-                              </div>
-
-                        </div>
-
-                        <!-- 바코드 -->
-
-                        <!-- 조건부 렌더링 -->
-
-                        <div v-if="toggle === false" class="barcode-button-box">
-                              <button class="barcode-view" @click="onBarcode()">
-                                    바코드 실행
-                              </button>
-
-                              
+                              <span class="card-number">1354 90** **** 7777</span>
+                              <img class="card-button" :src="require(`../assets/card-button.png`)" alt="card-button" />
                         </div>
 
                   </main>
             </div>
+            <QR v-if="onDispose"/>
       </section>
 </template>
 <script>
@@ -111,6 +55,7 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
 
 import Loading from "../carbon/Loading.vue"
+import QR from "../carbon/QR.vue"
 // ..
 AOS.init();
 
@@ -118,203 +63,231 @@ export default {
       
       components: {
             Loading,
+            QR,
       },
       data() {
             return {
                   toggle: false,
                   isLoading: false,
+                  isDispose : false,
+                  
             };
       },
       methods: {
-            onBarcode: function () {
-                  console.log(`바코드 실행`);
-                  this.toggle = true;
+            onDispose: function () {
+                  console.log(`배출하기 클릭`);
+                  this.isDispose = true;
             },
-            onClose: function () {
-                  console.log(`바코드 종료`);
-                  this.toggle = false;
-            },
-            isDone : function () {
-                  console.log(`통닫기`)
-                  this.isLoading = true;
+            autoClose : function () {
+                  console.log(`자동 닫기 실행`)
 
                   setTimeout(() => {
-                        this.isLoading = false;
+                        this.isDispose = false;
+                  }, 100000)
+                  console.log(`자동 닫기 완료`)
 
-                  }, 5000)
-                  
             }
       },
 };
 </script>
 <style>
 .barcode-container {
-      height: 100vh;
-      background-color: #eec82f;
+
+      height: 60vh;
+      background-color: #FFBA00;
+      background-image:  
+            url("../assets/qr-background.png");
       padding: 0px;
+ 
+      
+       
 }
 
 .barcode-header {
+
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 800;
+      background: white;
 }
 
 .barcode-header i {
       margin-right: 0.25rem;
 }
 
+.barcode-main-anim {
+      padding: 15px;
+      margin-top: -15%;
+
+      
+}
+
 .barcode-main {
-      border-top-left-radius: 25px;
-      border-top-right-radius: 25px;
+      border-top-left-radius: 13px;
+      border-top-right-radius: 13px;
       background-color: white;
       height: 100vh;
       margin-top: 60px;
-
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-            rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-            rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+      box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* 바코드 디테일 */
 
-.barcode-box {
-      position: relative;
-}
-
-.barcode-box-details {
-      padding: 35px;
-      border-top: 1px solid rgb(245, 245, 245);
-      border-bottom: 1px solid rgb(245, 245, 245);
-}
-
-.detail-top {
+.barcode-detail-box {
+      margin-top: 20px;
+      background: white;
       display: flex;
+      flex-direction: column;
+      list-style: none;
+      border-radius: 13px;
+      padding: 20px;
+}
+
+.barcode-detail-list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.1);
+      border-radius: 13px;
+      padding: 20px 25px;
+      margin-bottom: 10px;
+      padding: 20px 15px;
+
+   
+
+}
+
+
+.barcode-top {
+      padding: 40px 20px 20px 20px;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
 }
 
-.detail-top > span,
-.detail-bottom > span {
-      font-size: 12px;
-      opacity: 0.6;
-      margin-right: 5px;
+.barcode-top-text {
+      font-size: 20px;
+}
+.barcode-top-text strong {
+      font-size: 25px;
+      font-weight: 700;
 }
 
-.detail-bottom > span {
-      display: inline-block;
-      margin-right: 20px;
+.barcode-top-button {
+      background: #A3CF4D;
+/* Gray Colors/White */
+
+      border: 5px solid #FFFFFF;
+      box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.1);
+      border-radius: 50px;
+      color: white;
+      padding: 15px 25px;
+      font-size: 20px;
+      font-weight: 600;
 }
 
-.detail-top-left > span {
-      font-size: 12px;
-      opacity: 0.6;
-      margin-right: 10px;
+.detail-list-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFBA00;
+      line-height: 19px;
 }
 
-.detail-top button {
-      padding: 1px 10px;
-      background-color: white;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 13px;
-      font-size: 12px;
+.list-title-second {
+      color: #1A3365;
 }
 
-/* 바코드 이미지 */
+.detail-list-text {
+      font-size: 15px;
+      font-weight: 700;
+ }
 
-.barcode-img-box {
-      width: 60%;
+.detail-list-text span:last-child {
+      color: #6B7280;
+}
+
+ 
+.divider {
+      margin-top: 30px;
+      height: 1px;
+      width: 226px;
       margin: 0 auto;
-      padding-top: 10px;
+      border: 1px solid #E1DEE6;
+      
+
 }
 
-.barcode-img {
-      width: 100%;
-      height: auto;
-      margin-top: 100px;
-}
-.barcode-button-box {
-      text-align: center;
-      margin-top: 10%;
-}
 
-.barcode-view {
-      padding: 10px 30px;
-      background-color: whitesmoke;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 20px;
-      font-size: 15px;
-      font-weight: 800;
-}
 
-/* 카드 박스 */
-
-.card {
-      padding: 30px;
-      width: 100%;
-}
-
-.mdi-arrow-left {
-      position: absolute;
-      left: 5%;
-      top: 2%;
-      font-size: 23px;
-}
-
-.card-box-title {
-      position: absolute;
-      top: 4.3%;
-      left: 45%;
-      font-size: 15px;
-      font-weight: 800;
-}
+/* 카드 UI */
 
 .card-box {
-      height: 285px;
-      display: flex;
-      justify-content: center;
+      padding: 20px;
       position: relative;
-}
+ }
 
-.card-img-box {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-}
-.card-img {
-      display: block;
-      width: 100%;
-      height: auto;
-      box-shadow: rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em,
-            rgb(0 0 0 / 25%) 0px 0.125em 0.5em,
-            rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
-      border-radius: 30px;
-      padding: 10px;
-}
-.card-details {
-      margin-top: 20px;
+ .card-details {
       display: flex;
       justify-content: space-between;
-      border-bottom: 1px solid rgb(245, 245, 245);
-      padding-bottom: 15px;
-}
+      align-content: center;
+      padding:13px;
 
-.card-details-texts {
+
+      
+ }
+
+.card-details span:first-child {
       font-size: 13px;
+      font-weight: 600;
 }
-.card-details-texts p:last-child {
-      font-size: 11px;
-
-      opacity: 0.3;
-}
-
-.card-details-btn {
+.card-details span:last-child {
       font-size: 10px;
-      padding: 1px 9px;
-      border-radius: 10px;
+      background-color: #A3CF4D ;
+      border-radius: 13px;
+      padding: 5px 10px;
+      color: white;
+      font-weight: 600;
+      line-height: 12px;
+
+
 }
+
+.card-img {
+      width: 100%;
+      margin-bottom: 13px;
+      margin-top: 5px;
+      padding:13px;
+
+}
+
+.card-number {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 14px;
+      display: flex;
+      align-items: center;
+      padding: 0px 13px;
+
+      
+}
+
+.card-button {
+      position: absolute;
+      top: -3%;
+      right: 0;
+      width: 63px;
+      height: auto;
+      
+
+}
+
+ 
+ 
 
 .testButton {
       margin-top: 50px;

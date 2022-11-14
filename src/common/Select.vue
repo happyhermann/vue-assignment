@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="grid" v-for="logo in filteredList">
+        <div class="grid-item" v-for="logo in filteredList">
             <img v-bind:src ="logo.image"/>
             <small>{{logo.title}}</small>
         
@@ -55,6 +55,8 @@ export default {
         align-items: center;
 
     }
+
+    /* 서치창 */
     
     .search-wrapper {
         position: relative;
@@ -81,5 +83,26 @@ export default {
         outline: none;
         transform: scale(1.05);
     }
+
+    /* 그리드 */
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+
+    .grid-item {
+        text-align: center;
+    }
+
+    .grid-item > img {
+        width: 50px;
+        height: 50px;
+    }
+
+
+
+
+    
 
 </style>

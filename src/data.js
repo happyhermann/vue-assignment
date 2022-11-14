@@ -1,4 +1,4 @@
-const logos = [
+const data = [
       {
             id: 0,
             title: "파리바게트",
@@ -14,26 +14,7 @@ const logos = [
             title: "샤니",
             image: "https://www.kfoodtimes.com/news/photo/202205/20238_30782_3243.png",
       },
-      {
-            id: 3,
-            title: "CU",
-            image: "https://mblogthumb-phinf.pstatic.net/20111216_260/bandi1649_1324021125100Xfjqu_JPEG/%C7%C1%B7%A3%C2%F7%C0%CC%C1%EE%B7%CE%B0%ED%B8%F0%C0%BD_%C0%BD%BD%C4%C1%A1%B7%CE%B0%ED%B8%F0%C0%BD_01.jpg?type=w2",
-      },
-      {
-            id: 4,
-            title: "자담치킨",
-            image: "https://mblogthumb-phinf.pstatic.net/20111216_260/bandi1649_1324021125100Xfjqu_JPEG/%C7%C1%B7%A3%C2%F7%C0%CC%C1%EE%B7%CE%B0%ED%B8%F0%C0%BD_%C0%BD%BD%C4%C1%A1%B7%CE%B0%ED%B8%F0%C0%BD_01.jpg?type=w2",
-      },
-      {
-            id: 5,
-            title: "노랑통닭",
-            image: "https://mblogthumb-phinf.pstatic.net/20111216_260/bandi1649_1324021125100Xfjqu_JPEG/%C7%C1%B7%A3%C2%F7%C0%CC%C1%EE%B7%CE%B0%ED%B8%F0%C0%BD_%C0%BD%BD%C4%C1%A1%B7%CE%B0%ED%B8%F0%C0%BD_01.jpg?type=w2",
-      },
-      {
-            id: 6,
-            title: "피자헛",
-            image: "https://mblogthumb-phinf.pstatic.net/20111216_260/bandi1649_1324021125100Xfjqu_JPEG/%C7%C1%B7%A3%C2%F7%C0%CC%C1%EE%B7%CE%B0%ED%B8%F0%C0%BD_%C0%BD%BD%C4%C1%A1%B7%CE%B0%ED%B8%F0%C0%BD_01.jpg?type=w2",
-      },
+  
 ];
 
-export default logos;
+export default data;
