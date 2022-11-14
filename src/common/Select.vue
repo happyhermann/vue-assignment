@@ -5,19 +5,31 @@
             <p>{{inputText}}</p>
         </div>
     </div>
+    <div class="wrapper">
+        <div class="grid" v-for="logo in filteredList">
+            <img v-bind:src ="logo.image"/>
+            <small>{{logo.title}}</small>
+        
+        </div>
+    </div>
 </template>
 <script>
+
+ import logos from "../logos.js"
+ // 로고 더미 데이터
+
+
 export default {
 
     data () {
         return {
-            inputText: ''
+            inputText: '',
+            logos: logos
 
         }
     },
     methods: {
 
-      
         updateInput: function (event) {
             console.log(event.target.value)
             var updatedText = event.target.value;
@@ -25,6 +37,13 @@ export default {
         },
 
     },
+    computed: {
+        filteredList() {
+            return this.logos.filter(logo => {
+                return logo.title.toLowerCase().includes(this.inputText.toLowerCase())
+            })
+        }
+    }
     
 }
 </script>
