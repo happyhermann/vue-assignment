@@ -9,6 +9,7 @@ import MyPartner from "../components/MyPartner";
 import Login from "../carbon/Login";
 import Barcode from "../carbon/Barcode";
 import Valid from "../carbon/Valid";
+import Select from "../common/Select"
 
 const routes = [
       {
@@ -46,6 +47,11 @@ const routes = [
             name: "Valid",
             component: Valid,
       },
+      {
+            path: `/select`,
+            name: "Select",
+            component: Select,
+      }
 ];
 
 // 라우팅 패스, 컴포넌트 등 정의

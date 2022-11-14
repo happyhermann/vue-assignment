@@ -1,13 +1,66 @@
 <template lang="">
-    <div>
-        
+    <div class="select-container">
+        <div class="search-wrapper">
+            <input v-bind:value="inputText" v-on:input="updateInput" type="text" placeholder="프랜차이즈 검색" />
+            <p>{{inputText}}</p>
+        </div>
     </div>
 </template>
 <script>
 export default {
+
+    data () {
+        return {
+            inputText: ''
+
+        }
+    },
+    methods: {
+
+      
+        updateInput: function (event) {
+            console.log(event.target.value)
+            var updatedText = event.target.value;
+            this.inputText = updatedText;
+        },
+
+    },
     
 }
 </script>
-<style lang="">
+<style>
+
+    .select-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
     
+    .search-wrapper {
+        position: relative;
+        
+    }
+    .search-wrapper > label {
+        position: absolute;
+        font-size: 12px;
+        color: rgba(0,0,0,.50);
+        top: 8px;
+        left: 12px;
+        z-index: -1;
+        transition: .15s all ease-in-out;
+    }
+    .search-wrapper input {
+        padding: 4px 12px;
+        color: rgba(0,0,0,.70);
+        border: 1px solid rgba(0,0,0,.12);
+        transition: .15s all ease-in-out;
+        background: white;
+       
+    }
+    .search-wrapper:focus {
+        outline: none;
+        transform: scale(1.05);
+    }
+
 </style>
