@@ -1,5 +1,5 @@
 {
-  "name": "allsu-assignment",
+  "name": "yarn",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -61,5 +61,9 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "main": "index.js",
+  "repository": "https://github.com/happyhermann/vue-assignment.git",
+  "author": "Chiyun Lee <carrick035@gmail.com>",
+  "license": "MIT"
 }

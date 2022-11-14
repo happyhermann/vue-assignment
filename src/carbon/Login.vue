@@ -168,7 +168,7 @@ export default {
 
                   if (this.id && this.pw) {
                         if (this.id !== "allsu") {
-                              this.errors = "* 아이디가 유효하지 않습니다";
+                              this.errors = "* 아이디와 비밀번호를 확인해주세요";
                         } else if (this.id == "allsu" && this.pw == "1234") {
                               this.errors = "";
                               alert("allsu님 환영합니다!");
@@ -552,8 +552,10 @@ export default {
 /* 폼 유효성  */
 
 .errorMessage {
-      font-size: 13px;
+      font-size: 14px;
       margin-top: 5px;
       margin-left: 3px;
+      color: red;
+      font-weight: 600;
 }
 </style>

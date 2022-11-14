@@ -78,8 +78,16 @@
                                                 <span>포인트 계좌</span
                                                 ><span>농협(5824)</span>
                                           </div>
+
+                                          <button class="testButton" @click='isDone()'>배출 끝내기</button>
+
+                                          <Loading v-if='isLoading'/>
+
+
                                     </div>
+                                    
                               </div>
+
                         </div>
 
                         <!-- 바코드 -->
@@ -90,7 +98,10 @@
                               <button class="barcode-view" @click="onBarcode()">
                                     바코드 실행
                               </button>
+
+                              
                         </div>
+
                   </main>
             </div>
       </section>
@@ -98,13 +109,20 @@
 <script>
 import AOS from "aos";
 import "aos/dist/aos.css"; // You can also use <link> for styles
+
+import Loading from "../carbon/Loading.vue"
 // ..
 AOS.init();
 
 export default {
+      
+      components: {
+            Loading,
+      },
       data() {
             return {
                   toggle: false,
+                  isLoading: false,
             };
       },
       methods: {
@@ -116,6 +134,16 @@ export default {
                   console.log(`바코드 종료`);
                   this.toggle = false;
             },
+            isDone : function () {
+                  console.log(`통닫기`)
+                  this.isLoading = true;
+
+                  setTimeout(() => {
+                        this.isLoading = false;
+
+                  }, 5000)
+                  
+            }
       },
 };
 </script>
@@ -286,5 +314,16 @@ export default {
       font-size: 10px;
       padding: 1px 9px;
       border-radius: 10px;
+}
+
+.testButton {
+      margin-top: 50px;
+    padding: 10px 30px;
+    background-color: whitesmoke;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 0 auto;
+    width: 100%;
 }
 </style>

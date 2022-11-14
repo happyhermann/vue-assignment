@@ -1,9 +1,10 @@
 <!-- @ 슬라이더 컴포넌트 -->
 
 <template>
-      <swiper
+       <p class="slide-title">올수 협력 프랜차이즈</p>
+       <swiper
             effect="card"
-            slides-per-view="3"
+            slides-per-view="1"
             :free-mode="true"
             :space-between="5"
             :grab-cursor="true"
@@ -87,21 +88,25 @@ body {
       padding: 0;
 }
 
-.swiper {
-      width: 100%;
-      height: 120px;
+.slide-title {
+      
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 0px;
+      padding-bottom: 23px;
+      border-bottom: 1px solid #e1dee6;
+    
 }
 
-.slide-title {
-      font-size: 11px;
-      text-align: center;
-      background-color: #0079f2;
-      color: white;
-      padding: 2px 10px;
-      width: 50%;
-      margin: 0 auto;
-      border-radius: 20px;
-}
+.swiper {
+      width: 100%;
+      height: 150px;
+      margin-top: 15px;
+ }
+
+ 
 
 .swiper-slide {
       text-align: center;
@@ -125,8 +130,7 @@ body {
 .swiper-slide img {
       display: block;
       width: 100%;
-      height: 100px;
-      margin-top: 6px;
+ 
 }
 
 .swiper-button-next {
@@ -135,4 +139,6 @@ body {
 .swiper-button-prev {
       display: none;
 }
+
+
 </style>

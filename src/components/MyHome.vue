@@ -11,17 +11,32 @@
             </header>
             <router-link to="/signin">
                   <section class="container container1">
-                        <div class="main"></div>
+                        <div class="image-box">
+                              <img
+                              class="image"
+                             :src="require(`../assets/boss.png`)"
+                             alt="사장님 버튼" />
+                        </div>
                   </section>
             </router-link>
             <router-link to="/signin">
                   <section class="container container2">
-                        <div class="main"></div>
+                          <div class="image-box">
+                              <img
+                              class="image" 
+                              :src="require(`../assets/partner.png`)"
+                             alt="사장님 버튼" />
+                        </div>
                   </section>
             </router-link>
             <router-link to="/login">
                   <section class="container container3">
-                        <div class="main"></div>
+                          <div class="image-box">
+                              <img
+                              class="image"
+                             :src="require(`../assets/normal.png`)"
+                             alt="사장님 버튼" />
+                        </div>
                   </section>
             </router-link>
             <MainSlider />
@@ -47,39 +62,50 @@ export default {
 <style>
 .app-main {
       width: 100%;
-      padding: 15px;
+      padding: 50px 40px;
 }
+
+.allsu-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 17px;
+
+}
+
+.allsu-title > h2 {
+      font-size: 24px;
+}
+
+.allsu-help {
+      display: flex;
+      
+}
+
+.allsu-help > i {
+      font-size: 13px;
+      margin-right: 5px;
+      font-weight: 500;
+      line-height: 19px;
+
+}
+
+.allsu-help > span {
+      font-size: 14px;
+      font-weight: 500;
+}
+
+
 .container {
-      margin-bottom: 15px;
+      margin-bottom: 13px;
 }
 
-.container1 > .main {
-      background-image: url("../assets/boss.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 70px 0;
+
+.container3 {
+      margin-bottom: 20% ;
 }
 
-.container2 > .main {
-      background-image: url("../assets/partner.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 70px 0;
-}
-
-.container3 > .main {
-      background-image: url("../assets/normal.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 70px 0;
-}
-
-.main {
-      background-color: white;
-      padding: 10px;
-      border-radius: 15px;
-      width: 100%;
-}
+ 
 
 nav {
       background: linear-gradient(-80deg, #f4b037 37%, #f0ebd9 20%);
@@ -114,63 +140,19 @@ h3:first-child {
       padding-bottom: 5px;
 }
 
-.list {
-      display: flex;
-      justify-content: space-between;
+.img-box {
+      width: 320px;
+      height: auto;
+      margin: 0;
 }
-
-.list-left {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-      margin-right: 19px;
-}
-
-.list-texts > span {
-      font-size: 13px;
-      font-weight: 700;
+ 
+.image {
       display: block;
-      margin-bottom: 3px;
-}
-.list-texts p {
-      font-size: 10px;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.4);
-}
-
-.list-img {
-      width: 67px;
-      height: 80px;
-      margin: 0 auto;
-      margin-bottom: 15px;
-}
-.img {
       width: 100%;
+      height: 100%;
+      margin: 0;
+     
 }
 
-.button {
-      display: flex;
-      flex-direction: row;
-      font-size: 9px;
-      justify-content: center;
-      align-items: center;
-      padding: 6px 10px;
-      gap: 10px;
-
-      margin: 0 auto;
-      margin-top: 10px;
-      /* Amarillo Oro */
-
-      background: black;
-      border-radius: 8px;
-      font-weight: 800;
-      margin-top: 5px;
-
-      /* Inside auto layout */
-      color: white;
-      flex: none;
-      order: 2;
-      flex-grow: 0;
-}
+ 
 </style>

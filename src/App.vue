@@ -17,11 +17,18 @@ export default {
 
       data: () => ({
             //
+            
       }),
 };
 </script>
 
 <style>
+
+* {
+      font-family: 'Noto Sans KR', sans-serif;
+
+}
+
 .fade-enter {
       opacity: 0;
 }
