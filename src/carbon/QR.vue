@@ -1,13 +1,15 @@
 <template >
+     
     <div v-if="switch" class="qr-container">
         <div class="qr-white-bg">
             <header class="qr-header">
-                <i class="mdi mdi-close qrClose" @click="$emit('close')"></i>
+                <i class="mdi mdi-close qrClose" @click="[$emit('close'), onClose()]"></i>
                 <!-- 이거 누르면 모달 자체를 끄게 -->
 
                 <span>탄소중립저울</span>
              </header>
-            <main class="qr-main">
+             <div class="item" data-aos="zoom-in">
+             <main class="qr-main">
                 <div class="qr-guide">
                     <i class="mdi mdi-information-outline"></i>
                     <span>도움이 필요해요</span>
@@ -21,17 +23,25 @@
                     <button v-else  @click="allDone()" class="qr-progress-btn ">배출완료</button> 
                  </div>
             </main>
+            </div>
       </div>
     </div>
     <!-- 배출완료 것 조건부 렌더링 -->
     <div v-else class="qr-container">
+
         <div class="qr-white-bg">
+            
+            <div class="item" data-aos="flip-right">
+
             <header class="qr-header">
-                <i class="mdi mdi-close qrClose" @click="$emit('close')"></i>
+                <i class="mdi mdi-close qrClose" @click="[$emit('close'), onClose()]"></i>
                 <!-- 이거 누르면 모달 자체를 끄게 -->
 
                 <span>탄소중립저울</span>
             </header>
+            </div>
+            <div class="item" data-aos="flip-right">
+
             <main class="qr-main">
                 <div class="qr-done-guide">
                     <p class="qr-done-text">배출 완료!</p>
@@ -47,6 +57,7 @@
                      <button @click="[allDone(), $emit('close')]"  class="qr-done-btn ">확인</button>
                 </div>
             </main>
+            </div>
       </div>
     </div>
     <Loading v-if="response === true"/>
@@ -57,8 +68,17 @@
 
 import Loading from './Loading.vue';
 
- 
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+AOS.init();
+
+
+var timerFunction = "";
+
 export default {
+
+
+
 
     components: {
         Loading,
@@ -75,9 +95,9 @@ export default {
             // 모달창 배출 => 배출 완료 조건부 state
 
             // 시간 state
-            minutes:  3,
-            seconds : '00',
-            counter : 10,
+            minutes:  0,
+            seconds : 13,
+            counter :  13,
             response: false,
             
         }
@@ -93,10 +113,18 @@ export default {
             // 3. 7초 뒤 모달이 꺼지고
             // 4. 배출완료 페이지 렌더링
         },
+
+        onClose: function () {
+            console.log(`QR 단순 닫기 for clearInterval`)
+            clearInterval(timerFunction);
+
+        },
        
         allDone: function () {
             console.log(`배출완료 마무리`)
+
             this.response = true;
+
 
             setTimeout(() => {
 
@@ -114,7 +142,7 @@ export default {
  
         },
         timer() {
-           const timerFunction =  setInterval(() => {
+            timerFunction =  setInterval(() => {
                 this.seconds = --this.counter % 60
                 this.minutes = parseInt(this.counter / 60, 10) % 60
 
