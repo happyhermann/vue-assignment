@@ -9,6 +9,7 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^2.1.0",
     "@mdi/font": "5.9.55",
     "aos": "^2.3.4",
     "axios": "^1.0.0",
@@ -16,7 +17,7 @@
     "normalize.css": "^8.0.1",
     "roboto-fontface": "*",
     "swiper": "^8.4.4",
-    "vue": "^3.2.13",
+    "vue": "^3.2.45",
     "vue-joi-validation": "^1.0.9",
     "vue-router": "^4.1.5",
     "vue-styled-components": "^1.6.0",

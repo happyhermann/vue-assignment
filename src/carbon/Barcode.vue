@@ -47,7 +47,7 @@
 
                   </main>
             </div>
-            <QR v-if="onDispose"/>
+            <QR v-if="isDispose" @close="isDispose = false "/>
       </section>
 </template>
 <script>
@@ -78,12 +78,13 @@ export default {
                   console.log(`배출하기 클릭`);
                   this.isDispose = true;
             },
+            
             autoClose : function () {
                   console.log(`자동 닫기 실행`)
 
                   setTimeout(() => {
-                        this.isDispose = false;
-                  }, 100000)
+                  this.isDispose = false;
+                  }, 50000)
                   console.log(`자동 닫기 완료`)
 
             }

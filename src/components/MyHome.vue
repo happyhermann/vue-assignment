@@ -34,8 +34,8 @@
                           <div class="image-box">
                               <img
                               class="image"
-                             :src="require(`../assets/normal.png`)"
-                             alt="사장님 버튼" />
+                              :src="require(`../assets/normal.png`)"
+                              alt="사장님 버튼" />
                         </div>
                   </section>
             </router-link>
