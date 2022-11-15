@@ -24,22 +24,32 @@ export default {
 
 .layerPopup {
     /* display :block; */
-     position: fixed;
-    top: 0;
-    left: 0;
+  
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.3);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    margin: -30px 0 0 -30px;
+    background: rgba(0,0,0,0.6);
+    z-index: 3000;
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
 }
 
 .spinner {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
  
 }
 
