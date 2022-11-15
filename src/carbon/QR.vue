@@ -2,8 +2,11 @@
     <div v-if="switch" class="qr-container">
         <div class="qr-white-bg">
             <header class="qr-header">
+                <i class="mdi mdi-close qrClose" @click="$emit('close')"></i>
+                <!-- 이거 누르면 모달 자체를 끄게 -->
+
                 <span>탄소중립저울</span>
-            </header>
+             </header>
             <main class="qr-main">
                 <div class="qr-guide">
                     <i class="mdi mdi-information-outline"></i>
@@ -13,9 +16,9 @@
                     <img class="qr" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="QR 코드"/>
                 </div>
                 <div class="qr-bottom">
-                    <p class="qr-timer">{{this.minutes}} : {{this.seconds}} </p>
+                     <p class="qr-timer">{{this.minutes}} : {{this.seconds}} </p>    
                     <button v-if="isDone"  @click="allDone()"  class="qr-done-btn ">배출완료</button>
-                    <button v-else  @click="allDone()" class="qr-progress-btn ">배출완료</button>
+                    <button v-else  @click="allDone()" class="qr-progress-btn ">배출완료</button> 
                  </div>
             </main>
       </div>
@@ -24,6 +27,9 @@
     <div v-else class="qr-container">
         <div class="qr-white-bg">
             <header class="qr-header">
+                <i class="mdi mdi-close qrClose" @click="$emit('close')"></i>
+                <!-- 이거 누르면 모달 자체를 끄게 -->
+
                 <span>탄소중립저울</span>
             </header>
             <main class="qr-main">
@@ -43,12 +49,20 @@
             </main>
       </div>
     </div>
+    <Loading v-if="response === true"/>
+
  
 </template>
 <script>
 
+import Loading from './Loading.vue';
+
  
 export default {
+
+    components: {
+        Loading,
+    },
 
 
     data() {
@@ -61,9 +75,10 @@ export default {
             // 모달창 배출 => 배출 완료 조건부 state
 
             // 시간 state
-            minutes: 5,
+            minutes:  3,
             seconds : '00',
-            counter : 300,
+            counter : 10,
+            response: false,
             
         }
         
@@ -81,17 +96,47 @@ export default {
        
         allDone: function () {
             console.log(`배출완료 마무리`)
-            this.switch = false;
+            this.response = true;
+
+            setTimeout(() => {
+
+
+                this.response = false;
+                this.switch = false;
+
+
+            }, 5000)
+
+
             // QR 배출 화면으로 초기화 
             console.log(`배출완료 alldone : ${this.switch}`)
             
  
         },
         timer() {
-            setInterval(() => {
+           const timerFunction =  setInterval(() => {
                 this.seconds = --this.counter % 60
                 this.minutes = parseInt(this.counter / 60, 10) % 60
+
+                if (this.counter < 0) {
+                    clearInterval(timerFunction);
+                    alert("배출 종료")
+                    this.switch = false;
+
+                    // 자동으로 완료창으로
+                }
+                if (this.switch === false) {
+                    clearInterval(timerFunction);
+                     this.switch = false;
+                }
+
+                // 배출 누르고도 interval 안되게 버튼 누르면 clearInterval 종료
+
+                
+
             }, 1000);
+
+           
         }
     },
     created () {
@@ -145,6 +190,7 @@ export default {
     
     
     .qr-header {
+        position: relative;
         background-color: #A3CF4D;
         padding: 15px 50px;
         text-align: center;
@@ -153,11 +199,19 @@ export default {
         font-weight: 600;
         border-top-left-radius: 13px;
         border-top-right-radius: 13px;
-
-
-
-
+        align-items: center;
+        display: flex;
+        justify-content: center;
+ 
        
+    }
+
+
+    .qr-header > i {
+        position: absolute;
+        left: 4%;
+
+
     }
     .qr-guide {
          display: flex;
@@ -195,6 +249,8 @@ export default {
         height: 100%;
         margin: 0;
      }
+
+   
 
 
      /* QR Bottom */
