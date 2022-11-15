@@ -39,7 +39,7 @@
                         </div>
                   </section>
             </router-link>
-            <!-- <MainSlider /> -->
+            <MainSlider />
       </div>
 </template>
 

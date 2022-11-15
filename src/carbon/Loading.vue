@@ -4,8 +4,8 @@
     <div class="layerPopup">
         <v-progress-circular
         class="spinner"
-        :size="80"
-        :width="8"
+        :size="90"
+        :width="9"
       color="amber"
       
       indeterminate

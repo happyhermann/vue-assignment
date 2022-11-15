@@ -1,4 +1,5 @@
 <template lang="">
+      
       <section class="container barcode-container">
             <div data-aos="fade-up">
                   <header class="barcode-header">
@@ -15,7 +16,7 @@
             </div>
             <div class="barcode-top">
                              <p class="barcode-top-text"><strong>백종석</strong>님 <br/>안녕하세요!</p>
-                             <span v-on:click="onDispose" class="barcode-top-button">배출하기</span>
+                             <button @click="onDispose" class="barcode-top-button">배출하기</button>
                         </div>
             <div data-aos="fade-up" class="barcode-main-anim">
                   <main class="barcode-main">
@@ -48,7 +49,8 @@
                   </main>
             </div>
             <QR v-if="isDispose" @close="isDispose = false "/>
-      </section>
+            <!-- <Loading/> -->
+        </section>
 </template>
 <script>
 import AOS from "aos";
@@ -68,7 +70,7 @@ export default {
       data() {
             return {
                   toggle: false,
-                  isLoading: false,
+                  isLoading: true,
                   isDispose : false,
                   
             };
@@ -84,7 +86,7 @@ export default {
 
                   setTimeout(() => {
                   this.isDispose = false;
-                  }, 50000)
+                  }, 30000)
                   console.log(`자동 닫기 완료`)
 
             }
@@ -94,9 +96,8 @@ export default {
 <style>
 .barcode-container {
 
-      height: 60vh;
-      background-color: #FFBA00;
-      background-image:  
+      height: 100%;
+       background-image:  
             url("../assets/qr-background.png");
       padding: 0px;
  
@@ -180,7 +181,7 @@ export default {
 .barcode-top-button {
       background: #A3CF4D;
 /* Gray Colors/White */
-
+     
       border: 5px solid #FFFFFF;
       box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.1);
       border-radius: 50px;
@@ -299,5 +300,19 @@ export default {
     font-size: 15px;
     margin: 0 auto;
     width: 100%;
+}
+
+@media screen and (max-width:768px){
+      .barcode-top-button:after {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 200%;
+        border-radius: 20px;
+        border: 1px dashed #ccc; /* 가상 요소 영역을 표시하기 위한 용도로 실제로는 필요 없음 */
+        background-color: rgba(255,0,0,0.1); /* 가상 요소 영역을 표시하기 위한 용도로 실제로는 필요 없음 */
+    }
 }
 </style>
