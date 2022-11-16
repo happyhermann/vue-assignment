@@ -24,9 +24,9 @@
                                     />
                               </div>
                               <div class="qr-bottom">
-                                    <p class="qr-timer">
+                                    <!-- <p class="qr-timer">
                                           {{ minutes }} : {{ seconds }}
-                                    </p>
+                                    </p> -->
                                     <button
                                           v-if="isDone"
                                           class="qr-done-btn"
@@ -80,7 +80,13 @@
                               <div class="qr-bottom">
                                     <button
                                           class="qr-done-btn"
-                                          @click="[allDone(), $emit('close')]"
+                                          @click="
+                                                [
+                                                      allDone(check),
+                                                      $emit('close'),
+                                                      scrollReset(),
+                                                ]
+                                          "
                                     >
                                           확인
                                     </button>
@@ -117,7 +123,7 @@ export default {
                   // 시간 state
                   minutes: 0,
                   seconds: "00",
-                  counter: 4,
+                  counter: 10,
                   response: false,
             };
       },
@@ -140,8 +146,11 @@ export default {
                   document.documentElement.style.overflow = "auto";
             },
 
-            allDone: function () {
+            allDone: function (check) {
                   console.log(`배출완료 마무리`);
+                  clearInterval(timerFunction);
+                  // 중복되지 않게 타이머 중단+
+                  document.documentElement.style.overflow = "hidden";
 
                   this.response = true;
 
@@ -152,10 +161,11 @@ export default {
                         // 배출완료 후 스크롤 고정 풀어줌
                   }, 5000);
 
-                  document.documentElement.style.overflow = "auto";
-
                   // QR 배출 화면으로 초기화
                   console.log(`배출완료 alldone : ${this.switch}`);
+            },
+            scrollReset: function () {
+                  document.documentElement.style.overflow = "auto";
             },
             timer() {
                   timerFunction = setInterval(() => {
@@ -169,8 +179,6 @@ export default {
                               setTimeout(() => {
                                     this.response = false;
                                     this.switch = false;
-                                    document.documentElement.style.overflow =
-                                          "auto";
 
                                     // 배출완료 후 스크롤 고정 풀어줌
                               }, 5000);
@@ -179,9 +187,10 @@ export default {
                         }
                         if (this.switch === false) {
                               clearInterval(timerFunction);
-                              document.documentElement.style.overflow = "auto";
 
                               this.switch = false;
+
+                              document.documentElement.style.overflow = "auto";
                         }
 
                         // 배출 누르고도 interval 안되게 버튼 누르면 clearInterval 종료
@@ -310,7 +319,7 @@ export default {
 .qr-done-btn {
       background: #ffba00;
       /* Gray Colors/White */
-
+      margin-top: 18px;
       border: 5px solid #ffffff;
       box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.1);
       border-radius: 50px;

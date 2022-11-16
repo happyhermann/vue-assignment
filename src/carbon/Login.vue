@@ -119,21 +119,19 @@
                                           <strong>간편하게</strong>
                                           시작하세요
                                     </span>
-
-                                    <div class="social-login kakao">
-                                          <div class="social-login-logo-box"> 
-                                                <img class="social-login-logo" :src="require(`../assets/kakao.png`)" alt="카카오 로그인 로고" /> 
-                                          </div>
-                                    </div>
-                                    <div class="social-login google">
-                                          <div class="social-login-logo-box">
-                                                <img class="social-login-logo" :src="require(`../assets/google.png`)" alt="구글 로그인 로고" />
-                                          </div>
-                                    </div>
-                                    <div class="social-login facebook">
-                                          <div class="social-login-logo-box">
-                                                <img class="social-login-logo" :src="require(`../assets/facebook.png`)" alt="페이스북 로그인 로고" />
-                                          </div>
+                                    <div>
+                                          <img
+                                                src="	https://www.siksinhot.com/static2/images/mobile/btn_login_sns01.png"
+                                                class="social-login kakao"
+                                          />
+                                          <img
+                                                src="https://www.siksinhot.com/static2/images/mobile/btn_login_sns00.png"
+                                                class="social-login google"
+                                          />
+                                          <img
+                                                src="https://www.siksinhot.com/static2/images/mobile/btn_login_sns02.png"
+                                                class="social-login facebook"
+                                          />
                                     </div>
                               </div>
                         </main>
@@ -173,7 +171,8 @@ export default {
 
                   if (this.id && this.pw) {
                         if (this.id !== "allsu") {
-                              this.errors = "* 아이디와 비밀번호를 확인해주세요";
+                              this.errors =
+                                    "* 아이디와 비밀번호를 확인해주세요";
                         } else if (this.id == "allsu" && this.pw == "1234") {
                               this.errors = "";
                               alert("allsu님 환영합니다!");
@@ -489,8 +488,8 @@ export default {
 .login-container {
       width: 100%;
       background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-            url("https://www.hansung.ac.kr/CrossEditor/binary/images/000142/%ED%83%84%EC%86%8C%EC%A4%91%EB%A6%BD_%ED%8F%AC%EC%8A%A4%ED%84%B0(%EC%9B%B9%EC%9A%A9).jpg");
-      background-size: cover;
+            url("@/assets/bin.png");
+      background-size: contain;
       background-repeat: no-repeat;
       z-index: -3;
       padding: 0;
@@ -509,7 +508,7 @@ export default {
 
 .social-login-box {
       border-top: 1px solid rgb(245, 245, 245);
-      margin-top: 10%;
+      margin-top: 8%;
       padding-top: 7%;
       text-align: center;
 }
@@ -527,48 +526,19 @@ export default {
 }
 
 .social-login {
-      display: block;
-      padding: 0px 10px;
-      text-align: center;
-      overflow: hidden;
-      width: 100%;
-      height: 40px;
-      border-radius: 3px;
-      font-weight: 800;
-      color: rgb(25, 25, 25);
-      margin-bottom: 10px;
-      font-size: 13px;
-      display: flex;
-    align-items: center;
-    justify-content: center;
+      width: 50px;
+      height: auto;
+      border-radius: 50%;
 }
 
 .kakao {
-      background-color: rgb(254, 229, 0);
-      border: 1px solid rgb(254, 229, 0);
-      color: black;
+      margin-right: 0.7em;
 }
 
-.social-login-logo-box {
-      width: 23px;
-      height: 23px;
-      
-
-}
-
-.social-login-logo {
-
-      width: 100%;
-      height: 100%;
-
-}
 .google {
-      background-color: white;
-      border: 1px solid black;
+      margin-right: 0.7em;
 }
 .facebook {
-      background-color: #4f75be;
-      color: white;
 }
 
 /* 폼 유효성  */
