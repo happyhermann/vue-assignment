@@ -20,8 +20,7 @@
                 <div class="qr-bottom">
                      <p class="qr-timer">{{this.minutes}} : {{this.seconds}} </p>    
                     <button v-if="isDone"  @click="allDone()"  class="qr-done-btn ">배출완료</button>
-                    <button v-else  @click="allDone()" class="qr-progress-btn ">배출완료</button> 
-                 </div>
+                  </div>
             </main>
             </div>
       </div>
@@ -89,15 +88,15 @@ export default {
         return {
             time: 30,
             // timer분으로 계산하는 것 만들기
-            isDone: true,
+            isDone: false,
             // 배출완료 state
             switch: false,
             // 모달창 배출 => 배출 완료 조건부 state
 
             // 시간 state
             minutes:  0,
-            seconds : 13,
-            counter :  13,
+            seconds : "00",
+            counter :  10,
             response: false,
             
         }
@@ -106,13 +105,7 @@ export default {
     
     methods: {
 
-        onNext: function () {
-            console.log(`배출 넥스트`);
-            // 1. 이거 누르면 배출중 모달이 전체를 덮음 
-            // 2. setTimeOut 7초 동안 loading components 돌아감
-            // 3. 7초 뒤 모달이 꺼지고
-            // 4. 배출완료 페이지 렌더링
-        },
+  
 
         onClose: function () {
             console.log(`QR 단순 닫기 for clearInterval`)
@@ -132,6 +125,10 @@ export default {
                 this.response = false;
                 this.switch = false;
 
+                document.documentElement.style.overflow = "auto"
+                // 배출완료 후 스크롤 고정 풀어줌 
+
+
 
             }, 5000)
 
@@ -145,16 +142,21 @@ export default {
             timerFunction =  setInterval(() => {
                 this.seconds = --this.counter % 60
                 this.minutes = parseInt(this.counter / 60, 10) % 60
+ 
 
                 if (this.counter < 0) {
                     clearInterval(timerFunction);
                     alert("배출 종료")
                     this.switch = false;
+                    document.documentElement.style.overflow = "auto"
+
 
                     // 자동으로 완료창으로
                 }
                 if (this.switch === false) {
                     clearInterval(timerFunction);
+                    document.documentElement.style.overflow = "auto"
+
                      this.switch = false;
                 }
 
@@ -169,6 +171,11 @@ export default {
     },
     created () {
         this.switch = true;
+
+        setTimeout(() => {
+
+            this.isDone = true;
+        }, 4000)
     },  
     mounted() {
         console.log(`마운트`)
@@ -176,6 +183,7 @@ export default {
      
 
     },
+  
     
 }
 </script>
@@ -296,8 +304,17 @@ export default {
  
     }
 
+    .qr-timer-red {
+        color:red;
+        
+        transform:  scale(1.2);
+        transition: all ease 2s 0s;
+
+        
+    }
+
     .qr-progress-btn {
-        background: #E1DEE6;
+        background: #A3CF4D;
     /* Gray Colors/White */
 
         border: 5px solid #FFFFFF;
@@ -312,7 +329,7 @@ export default {
     /* 배출중 버튼 색 */
 
     .qr-done-btn {
-        background: #A3CF4D;
+        background: #FFBA00;
         /* Gray Colors/White */
 
         border: 5px solid #FFFFFF;

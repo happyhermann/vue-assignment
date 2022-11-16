@@ -48,7 +48,7 @@
 
                   </main>
             </div>
-            <QR v-if="isDispose" @close="isDispose = false "/>
+            <QR v-if="isDispose" @close="isDispose = false"  />
             <!-- <Loading/> -->
         </section>
 </template>
@@ -79,7 +79,13 @@ export default {
             onDispose: function () {
                   console.log(`배출하기 클릭`);
                   this.isDispose = true;
+                  document.documentElement.style.overflow = "hidden"
+
+
+
             },
+            // QR 코드 여는 함수
+            // + overflow = hidden으로 스크롤 고정
             
             autoClose : function () {
                   console.log(`자동 닫기 실행`)
@@ -89,7 +95,11 @@ export default {
                   }, 30000)
                   console.log(`자동 닫기 완료`)
 
+                  document.documentElement.style.overflow = "auto"
+
             }
+
+            // + 자동 닫기에서는 원상 복구
       },
 };
 </script>
@@ -100,6 +110,7 @@ export default {
        background-image:  
             url("../assets/qr-background.png");
       padding: 0px;
+      background-size: contain;
  
       
        
@@ -280,7 +291,7 @@ export default {
 
 .card-button {
       position: absolute;
-      top: -3%;
+      top: 30%;
       right: 0;
       width: 63px;
       height: auto;
@@ -289,7 +300,7 @@ export default {
 }
 
  
- 
+
 
 .testButton {
       margin-top: 50px;
