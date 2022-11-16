@@ -110,6 +110,9 @@ export default {
         onClose: function () {
             console.log(`QR 단순 닫기 for clearInterval`)
             clearInterval(timerFunction);
+            document.documentElement.style.overflow = "auto"
+
+
 
         },
        
@@ -125,12 +128,14 @@ export default {
                 this.response = false;
                 this.switch = false;
 
-                document.documentElement.style.overflow = "auto"
                 // 배출완료 후 스크롤 고정 풀어줌 
 
 
 
             }, 5000)
+
+            document.documentElement.style.overflow = "auto"
+
 
 
             // QR 배출 화면으로 초기화 
@@ -146,7 +151,6 @@ export default {
 
                 if (this.counter < 0) {
                     clearInterval(timerFunction);
-                    alert("배출 종료")
                     this.switch = false;
                     document.documentElement.style.overflow = "auto"
 

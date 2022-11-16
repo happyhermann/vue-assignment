@@ -24,18 +24,5 @@ export default {
 </script>
 
 <style>
-img {
-      width: 80%;
-      display: block;
-      margin: 0 auto;
-      margin-top: 30%;
-      margin-bottom: 30px;
-}
-
-.text-center p {
-      font-size: 25px;
-      font-weight: 800;
-      text-align: center;
-      margin: 0 auto;
-}
+ 
 </style>

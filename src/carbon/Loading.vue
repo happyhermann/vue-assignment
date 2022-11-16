@@ -10,7 +10,7 @@
       
       indeterminate
     >
-    <p class="spinner-text">배출중</p>
+    <p class="spinner-text">확인중</p>
 </v-progress-circular>
 
     </div>

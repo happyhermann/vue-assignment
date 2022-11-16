@@ -117,19 +117,24 @@
                                     <span class="social-login-text"
                                           >소셜 로그인으로
                                           <strong>간편하게</strong>
-                                          시작하세요</span
-                                    >
+                                          시작하세요
+                                    </span>
 
-                                    <button class="social-login kakao">
-                                          <span> </span>카카오로 시작하기
-                                    </button>
-                                    <button class="social-login google">
-                                          <span></span>구글 계정으로 시작하기
-                                    </button>
-                                    <button class="social-login facebook">
-                                          <span></span>페이스북 계정으로
-                                          시작하기
-                                    </button>
+                                    <div class="social-login kakao">
+                                          <div class="social-login-logo-box"> 
+                                                <img class="social-login-logo" :src="require(`../assets/kakao.png`)" alt="카카오 로그인 로고" /> 
+                                          </div>
+                                    </div>
+                                    <div class="social-login google">
+                                          <div class="social-login-logo-box">
+                                                <img class="social-login-logo" :src="require(`../assets/google.png`)" alt="구글 로그인 로고" />
+                                          </div>
+                                    </div>
+                                    <div class="social-login facebook">
+                                          <div class="social-login-logo-box">
+                                                <img class="social-login-logo" :src="require(`../assets/facebook.png`)" alt="페이스북 로그인 로고" />
+                                          </div>
+                                    </div>
                               </div>
                         </main>
                   </div>
@@ -527,18 +532,35 @@ export default {
       text-align: center;
       overflow: hidden;
       width: 100%;
-      height: 35px;
+      height: 40px;
       border-radius: 3px;
       font-weight: 800;
       color: rgb(25, 25, 25);
       margin-bottom: 10px;
       font-size: 13px;
+      display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .kakao {
       background-color: rgb(254, 229, 0);
       border: 1px solid rgb(254, 229, 0);
       color: black;
+}
+
+.social-login-logo-box {
+      width: 23px;
+      height: 23px;
+      
+
+}
+
+.social-login-logo {
+
+      width: 100%;
+      height: 100%;
+
 }
 .google {
       background-color: white;
